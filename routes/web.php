@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +26,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $users=User::all();
+        return view('admin.index');
     })->name('dashboard');
 });
-// Route::get('/register' , )
 
+Route::get('/user/logout' , [Controller::class , 'Logout'])->name('user.logout');
