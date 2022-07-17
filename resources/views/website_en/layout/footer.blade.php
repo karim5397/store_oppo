@@ -39,12 +39,12 @@
 
         </div>
         <div class="box footer-gallery">
-            <img src="{{asset('assets/img/oppo-a12.jpg')}}" alt="">
-            <img src="{{asset('assets/img/oppo-a16.jpg')}}" alt="">
-            <img src="{{asset('assets/img/oppo-a55-4g-1.jpg')}}" alt="">
-            <img src="{{asset('assets/img/oppo-a5s-r.jpg')}}" alt="">
-            <img src="{{asset('assets/img/oppo-f19.jpg')}}" alt="">
-            <img src="{{asset('assets/img/oppo-f9.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/oppo-a12.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/oppo-a16.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/oppo-a55-4g-1.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/oppo-a5s-r.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/oppo-f19.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/oppo-f9.jpg')}}" alt="">
         </div>
     </div>
     <p class="copyright">

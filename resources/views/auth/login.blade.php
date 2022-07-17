@@ -59,7 +59,7 @@
                                             <button class="btn btn-success btn-block waves-effect waves-light" type="submit"> Log In </button>
                                         </div>
 
-                                        <a href="{{route('password.reset')}}" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
+                                        <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
 
                                     </form>
 

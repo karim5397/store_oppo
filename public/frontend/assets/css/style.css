@@ -144,7 +144,7 @@ ul {
   font-size: 20px;
   border-radius: 50%;
   z-index: 100;
-  
+
 }
 @media(max-width:767px){
   .arrow-up{
@@ -392,18 +392,18 @@ header .main-nav .mega-menu .links li a i {
 }
 
 /* end landing */
-/* start atricles */
-.articles {
+/* start products */
+.products {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   position: relative;
 }
-.articles .container {
+.products .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 40px;
 }
-.articles .box {
+.products .box {
   box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
   background-color: white;
   overflow: hidden;
@@ -411,43 +411,43 @@ header .main-nav .mega-menu .links li a i {
   transition: transform var(--main-transation),
     box-shadow var(--main-transation);
 }
-.articles .box:hover {
+.products .box:hover {
   transform: translateY(-10px);
   box-shadow: 0 2px 15px rgb(0 0 0 /20%);
 }
-.articles .box img {
+.products .box img {
   width: 100%;
   max-width: 100%;
 }
-.articles .box .content {
+.products .box .content {
   padding: 20px;
 }
-.articles .box .content h3 {
+.products .box .content h3 {
   margin: 0%;
 }
-.articles .box .content p {
+.products .box .content p {
   margin: 10px 0 0;
   line-height: 1.5;
   color: #777;
 }
-.articles .box .info {
+.products .box .info {
   padding: 30px;
   border-top: 1px solid #e6e6e7;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.articles .box .info a {
+.products .box .info a {
   color: var(--main-color);
   font-weight: bold;
 }
-.articles .box .info i {
+.products .box .info i {
   color: var(--main-color);
 }
-.articles .box:hover .info i {
+.products .box:hover .info i {
   animation: move-arrow 0.6s linear infinite;
 }
-/* end atricles */
+/* end products */
 /* start gallery  */
 .gallery {
   padding-top: var(--main-padding-top);
@@ -820,7 +820,7 @@ header .main-nav .mega-menu .links li a i {
   justify-content: center;
   align-items: center;
   width: 80px;
-  padding-right :15px; 
+  padding-right :15px;
   left: 0%;
   top: 0;
   font-weight: bold;
@@ -860,7 +860,7 @@ header .main-nav .mega-menu .links li a i {
   .our-skills img{
     display: none;
   }
-  
+
 }
 .our-skills .skills{
   flex: 1;
@@ -1142,7 +1142,7 @@ flex-wrap: wrap;
   box-shadow: 0 12px 20px 0 rgb( 0 0 0 /13%) ,0 2px 4px 0 rgb( 0 0 0 /12%) ;
   transition: var(--main-transation);
   z-index: 1;
-  
+
 }
 
 .plans .box::before , .plans .box::after{
@@ -1214,7 +1214,7 @@ flex-wrap: wrap;
   color:#777
 }
 .plans .box ul{
-  text-align: left; 
+  text-align: left;
 }
 .plans .box ul li{
   padding: 20px;
@@ -1350,7 +1350,7 @@ flex-wrap: wrap;
   opacity: 0.8;
   transition: var(--main-transation);
   position: relative;
-  
+
 }
 .stats .box::before ,.stats .box::after{
   content: '';

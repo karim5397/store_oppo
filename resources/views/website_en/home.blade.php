@@ -9,21 +9,21 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nesciunt dicta possimus ab explicabo earum corporis qui perspiciatis soluta, sit eaque aliquid eveniet neque non veritatis voluptates rem veniam. Voluptatem?</p>
             </div>
             <div class="img-landing">
-                <img src="{{asset('assets/img/reno6-5g-pdp-design-renoglow-xl-1728.webp')}}" alt="" width="600px" height="378px">
+                <img src="{{asset('frontend/assets/img/reno6-5g-pdp-design-renoglow-xl-1728.webp')}}" alt="" width="600px" height="378px">
             </div>
         </div>
-        <a href="#articles" class="go-down">
+        <a href="#products" class="go-down">
             <i class="fas fa-angle-double-down fa-2x"></i>
         </a>
     </section>
     <!-- end landing -->
-    <!-- start articles -->
-    <section class="articles" id="articles">
-        <h2 class="main-title">Articles</h2>
+    <!-- start products -->
+    <section class="products" id="products">
+        <h2 class="main-title">Products</h2>
         <div class="container">
             <div class="box" data-aos="flip-left"
             data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-reno7.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-reno7.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO Reno 7</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -35,7 +35,7 @@
             </div>
             <div class="box" data-aos="flip-left"
             data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-a16.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-a16.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO A16</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -47,7 +47,7 @@
             </div>
             <div class="box" data-aos="flip-left"
             data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-a55-4g-1.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-a55-4g-1.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO A55</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -59,7 +59,7 @@
             </div>
             <div class="box" data-aos="flip-left"
             data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-f1s.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-f1s.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO F1S</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -71,7 +71,7 @@
             </div>
             <div class="box" data-aos="flip-right"
      data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-f9.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-f9.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO F9</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -83,7 +83,7 @@
             </div>
             <div class="box" data-aos="flip-right"
      data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-f19.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-f19.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO F19</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -95,7 +95,7 @@
             </div>
             <div class="box" data-aos="flip-right"
      data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-a9-2020-.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-a9-2020-.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO A9 2020</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -107,7 +107,7 @@
             </div>
             <div class="box" data-aos="flip-right"
      data-aos-easing="ease-out-cubic">
-                <img src="{{asset('assets/img/oppo-a5s-r.jpg')}}" alt="">
+                <img src="{{asset('frontend/assets/img/oppo-a5s-r.jpg')}}" alt="">
                 <div class="content">
                     <h3>OPPO A5S</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
@@ -120,39 +120,39 @@
         </div>
     </section>
     <div class="spikes"></div>
-    <!-- end articles -->
+    <!-- end products -->
     <!-- start Gallery -->
     <section class="gallery" id="gallery">
         <h2 class="main-title">Gallery</h2>
         <div class="container">
             <div class="box" data-aos="zoom-in-right">
                 <div class="image">
-                    <img src="{{asset('assets/img/oppo-find-x5-pro-3.jpg')}}">
+                    <img src="{{asset('frontend/assets/img/oppo-find-x5-pro-3.jpg')}}">
                 </div>
             </div>
             <div class="box" data-aos="zoom-in">
                 <div class="image">
-                    <img src="{{asset('assets/img/gallary2.jpg')}}">
+                    <img src="{{asset('frontend/assets/img/gallary2.jpg')}}">
                 </div>
             </div>
             <div class="box" data-aos="zoom-in-left">
                 <div class="image">
-                    <img src="{{asset('assets/img/gallary3.jpg')}}">
+                    <img src="{{asset('frontend/assets/img/gallary3.jpg')}}">
                 </div>
             </div>
             <div class="box" data-aos="zoom-in-right">
                 <div class="image">
-                    <img src="{{asset('assets/img/gallery7.jpg')}}">
+                    <img src="{{asset('frontend/assets/img/gallery7.jpg')}}">
                 </div>
             </div>
             <div class="box" data-aos="zoom-in">
                 <div class="image">
-                    <img src="{{asset('assets/img/gallary5.jpg')}}">
+                    <img src="{{asset('frontend/assets/img/gallary5.jpg')}}">
                 </div>
             </div>
             <div class="box" data-aos="zoom-in-left">
                 <div class="image">
-                    <img src="{{asset('assets/img/gallery6.jpg')}}">
+                    <img src="{{asset('frontend/assets/img/gallery6.jpg')}}">
                 </div>
             </div>
 
@@ -166,7 +166,7 @@
         <div class="container">
             <div class="box quality" data-aos="fade-right">
                 <div class="image">
-                    <img src="{{asset('assets/img/quality2.jpg')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/quality2.jpg')}}" alt="">
                 </div>
                 <h3>quality</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
@@ -174,7 +174,7 @@
             </div>
             <div class="box time" data-aos="fade-up">
                 <div class="image">
-                    <img src="{{asset('assets/img/time.jpg')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/time.jpg')}}" alt="">
                 </div>
                 <h3>time</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
@@ -182,7 +182,7 @@
             </div>
             <div class="box passion" data-aos="fade-left">
                 <div class="image">
-                    <img src="{{asset('assets/img/processor1.jpg')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/processor1.jpg')}}" alt="">
                 </div>
                 <h3>passion</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
@@ -199,7 +199,7 @@
         </h2>
         <div class="container">
             <div class="box" data-aos="flip-up">
-                <img src="{{asset('assets/images/avatar-01.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/avatar-01.png')}}" alt="">
                 <h3>Karim Atef</h3>
                 <span class="title">Full Stack Web Developer</span>
                 <div class="rate">
@@ -212,7 +212,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
             </div>
             <div class="box" data-aos="flip-up">
-                <img src="{{asset('assets/images/avatar-02.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/avatar-02.png')}}" alt="">
                 <h3>Ahmed Atef</h3>
                 <span class="title">Full Stack Web Developer</span>
                 <div class="rate">
@@ -225,7 +225,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
             </div>
             <div class="box" data-aos="flip-up">
-                <img src="{{asset('assets/images/avatar-03.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/avatar-03.png')}}" alt="">
                 <h3>Mohamed Said</h3>
                 <span class="title">Full Stack Web Developer</span>
                 <div class="rate">
@@ -238,7 +238,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
             </div>
             <div class="box" data-aos="flip-down">
-                <img src="{{asset('assets/images/avatar-04.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/avatar-04.png')}}" alt="">
                 <h3>Mohamed Ansary</h3>
                 <span class="title">Full Stack Web Developer</span>
                 <div class="rate">
@@ -251,7 +251,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
             </div>
             <div class="box" data-aos="flip-down">
-                <img src="{{asset('assets/images/avatar-05.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/avatar-05.png')}}" alt="">
                 <h3>Amr Samir</h3>
                 <span class="title">Full Stack Web Developer</span>
                 <div class="rate">
@@ -264,7 +264,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
             </div>
             <div class="box" data-aos="flip-down">
-                <img src="{{asset('assets/images/avatar-06.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/avatar-06.png')}}" alt="">
                 <h3>Ali Emad</h3>
                 <span class="title">Full Stack Web Developer</span>
                 <div class="rate">
@@ -286,7 +286,7 @@
         <div class="container">
             <div class="box" data-aos="fade-up-right">
                 <div class="data">
-                    <img src="{{asset('assets/img/team1.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team1.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -301,7 +301,7 @@
             </div>
             <div class="box" data-aos="fade-up">
                 <div class="data">
-                    <img src="{{asset('assets/img/team2.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team2.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -316,7 +316,7 @@
             </div>
             <div class="box" data-aos="fade-up-left">
                 <div class="data">
-                    <img src="{{asset('assets/img/team3.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team3.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -331,7 +331,7 @@
             </div>
             <div class="box" data-aos="fade-up-right">
                 <div class="data">
-                    <img src="{{asset('assets/img/team4.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team4.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -346,7 +346,7 @@
             </div>
             <div class="box" data-aos="fade-up">
                 <div class="data">
-                    <img src="{{asset('assets/img/team5.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team5.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -361,7 +361,7 @@
             </div>
             <div class="box" data-aos="fade-up-left">
                 <div class="data">
-                    <img src="{{asset('assets/img/team6.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team6.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -376,7 +376,7 @@
             </div>
             <div class="box" data-aos="fade-up-right">
                 <div class="data">
-                    <img src="{{asset('assets/img/team7.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team7.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -391,7 +391,7 @@
             </div>
             <div class="box" data-aos="fade-up">
                 <div class="data">
-                    <img src="{{asset('assets/img/team8.webp')}}" alt="">
+                    <img src="{{asset('frontend/assets/img/team8.webp')}}" alt="">
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -463,7 +463,7 @@
     <section class="our-skills" id="our-skills">
         <h2 class="main-title">Our Skills</h2>
         <div class="container">
-            <img src="{{asset('assets/img/skills.webp')}}" alt="" data-aos="fade-right">
+            <img src="{{asset('frontend/assets/img/skills.webp')}}" alt="" data-aos="fade-right">
             <div class="skills" data-aos="fade-left">
                 <div class="skill">
                     <h3>Screen<span>80%</span></h3>
@@ -497,24 +497,24 @@
     <section class="work-steps" id="work-steps">
         <h2 class="main-title">start how work</h2>
         <div class="container">
-            <img class="image" src="{{asset('assets/img/woork.jpg')}}" alt="" data-aos="zoom-out-down">
+            <img class="image" src="{{asset('frontend/assets/img/woork.jpg')}}" alt="" data-aos="zoom-out-down">
                 <div class="info" data-aos="zoom-out-up">
                     <div class="box">
-                         <img src="{{asset('assets/images/work-steps-1.png')}}" alt="">
+                         <img src="{{asset('frontend/assets/images/work-steps-1.png')}}" alt="">
                         <div class="text">
                             <h3>Business Analysis</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia animi laudantium tenetur harum excepturi, provident, sint, eveniet quisquam quasi omnis magni unde vero pariatur consequatur praesentium consectetur quo tempora tempore.</p>
                         </div>
                     </div>
                     <div class="box">
-                         <img src="{{asset('assets/images/work-steps-2.png')}}" alt="">
+                         <img src="{{asset('frontend/assets/images/work-steps-2.png')}}" alt="">
                         <div class="text">
                             <h3>Architecture</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga possimus sequi distinctio hic, nesciunt eligendi rerum. Unde, nesciunt! Rerum architecto officia quae cumque eligendi ullam laborum aspernatur culpa natus ducimus.</p>
                         </div>
                     </div>
                     <div class="box">
-                         <img src="{{asset('assets/images/work-steps-3.png')}}" alt="">
+                         <img src="{{asset('frontend/assets/images/work-steps-3.png')}}" alt="">
                         <div class="text">
                             <h3>Developement</h3>
                             <p>Lorem ipsum dolor sit amet consectr adipisicing elit. Tempora unde laborum repudiandae cum debitis ad dolor odio iusto, minima quibusdam quis voluptate doloremque exercitationem hic. Voluptate ad architecto ex molestias?</p>
@@ -532,7 +532,7 @@
         <div class="dots dots-down"></div>
         <h2 class="main-title">LATEST EVENTS</h2>
         <div class="container">
-            <img src="{{asset('assets/img/event.jpg')}}" alt="">
+            <img src="{{asset('frontend/assets/img/event.jpg')}}" alt="">
             <div class="info">
                 <div class="time">
                     <div class="units">
@@ -572,7 +572,7 @@
         <div class="container">
             <div class="box" data-aos="fade-right">
                 <h3 class="title">Advanced</h3>
-                <img src="{{asset('assets/images/hosting-advanced.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/hosting-advanced.png')}}" alt="">
                 <div class="price">
                     <span class="amount">$15</span>
                     <span class="time">per month</span>
@@ -590,7 +590,7 @@
             <div class="box popular" data-aos="fade-up">
                 <h3 class="label">Most popular</h3>
                 <h3 class="title">Professional</h3>
-                <img src="{{asset('assets/images/hosting-professional.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/hosting-professional.png')}}" alt="">
                 <div class="price">
                     <span class="amount">$25</span>
                     <span class="time">per month</span>
@@ -607,7 +607,7 @@
             </div>
             <div class="box" data-aos="fade-left">
                 <h3 class="title">Basic</h3>
-                <img src="{{asset('assets/images/hosting-basic.png')}}" alt="">
+                <img src="{{asset('frontend/assets/images/hosting-basic.png')}}" alt="">
                 <div class="price">
                     <span class="amount">$45</span>
                     <span class="time">per month</span>
@@ -647,7 +647,7 @@
                     </ul>
                 </div>
                     <div class="preview">
-                        <img src="{{asset('assets/img/qualcom.jpg')}}" alt="">
+                        <img src="{{asset('frontend/assets/img/qualcom.jpg')}}" alt="">
                         <div class="info">
                             Everything About The Virtual Hosts
                         </div>
@@ -691,7 +691,7 @@
                 <div class="content">
                     <h2>We Have A Discount</h2>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi asperiores consectetur, recusandae ratione provident necessitatibus, cumque delectus commodi fuga praesentium beatae. Totam vel similique laborum dicta aperiam odit doloribus corporis.</p>
-                    <img src="{{asset('assets/images/discount.png')}}" alt="">
+                    <img src="{{asset('frontend/assets/images/discount.png')}}" alt="">
                 </div>
             </div>
 

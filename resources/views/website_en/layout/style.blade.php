@@ -3,11 +3,11 @@
 
 <!-- start en style -->
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/all.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/style.css')}}" >
-<link rel="stylesheet" href="{{asset('assets/css/dark-style.css')}}" id="skin-color">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/normalize.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/all.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" >
+<link rel="stylesheet" href="{{asset('frontend/assets/css/dark-style.css')}}" id="skin-color">
 
 
 <!--start ar style-->

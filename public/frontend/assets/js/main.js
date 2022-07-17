@@ -121,20 +121,20 @@ let moonIcon = document.querySelector(".moon-icon");
 let cssStyleSheet = document.querySelector("#skin-color");
 
 moonIcon.addEventListener("click", () => {
-  cssStyleSheet.setAttribute("href", "http://127.0.0.1:8000/assets/css/dark-style.css");
+  cssStyleSheet.setAttribute("href", "http://127.0.0.1:8000/frontend/assets/css/dark-style.css");
   moonIcon.style.display = "none";
   sunIcon.style.display = "flex";
-  window.localStorage.setItem("darkStyle", "http://127.0.0.1:8000/assets/css/dark-style.css");
+  window.localStorage.setItem("darkStyle", "http://127.0.0.1:8000/frontend/assets/css/dark-style.css");
 });
 
-if (window.localStorage.getItem("darkStyle") == "http://127.0.0.1:8000/assets/css/dark-style.css") {
+if (window.localStorage.getItem("darkStyle") == "http://127.0.0.1:8000/frontend/assets/css/dark-style.css") {
   cssStyleSheet.setAttribute("href", window.localStorage.getItem("darkStyle"));
 } else {
-  cssStyleSheet.setAttribute("href", "http://127.0.0.1:8000/assets/css/style.css");
+  cssStyleSheet.setAttribute("href", "http://127.0.0.1:8000/frontend/assets/css/style.css");
 }
 
 sunIcon.addEventListener("click", () => {
-  cssStyleSheet.setAttribute("href", "http://127.0.0.1:8000/assets/css/style.css");
+  cssStyleSheet.setAttribute("href", "http://127.0.0.1:8000/frontend/assets/css/style.css");
   moonIcon.style.display = "flex";
   sunIcon.style.display = "none";
   window.localStorage.removeItem("darkStyle");

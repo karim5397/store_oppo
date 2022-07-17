@@ -13,9 +13,9 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css"  id="app-stylesheet" />
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
 
     </head>
 
@@ -59,6 +59,9 @@
                                         <div class="form-group mb-3">
                                             <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password" required>
                                         </div>
+                                        <div class="form-group col-md-12 ">
+                                            <input type="password" class="form-control input-lg" name="password_confirmation" placeholder="Confirm Password">
+                                          </div>
 
                                         {{-- <div class="form-group mb-3">
                                             <div class="custom-control custom-checkbox">
