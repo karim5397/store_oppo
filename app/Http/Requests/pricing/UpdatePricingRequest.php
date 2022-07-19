@@ -13,7 +13,7 @@ class UpdatePricingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,26 @@ class UpdatePricingRequest extends FormRequest
      *
      * @return array
      */
+    public function messages(){
+        return[
+            "title_en.required"=>"please input the title",
+            "title_ar.required"=>"please input the title",
+            "description_en.required"=>"please input the description",
+            "description_ar.required"=>"please input the description",
+            // "image.required"=>"please put the image",
+            "price.required"=>"please input the price",
+        ];
+
+    }
     public function rules()
     {
         return [
-            //
+            "title_en" => "required|max:255",
+            "title_ar" => "required|max:255",
+            "description_en" => "required",
+            "description_ar" => "required",
+            "image" => "sometimes|mimes:png,jpg,jpeg,webp",
+            "price" => "required",
         ];
     }
 }

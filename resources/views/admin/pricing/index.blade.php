@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col">
                 <div class="mt-3">
-                    <a href="{{route('create.product')}}" class="btn btn-primary">{{__('Add Product')}}</a>
+                    <a href="{{route('create.pricing')}}" class="btn btn-primary">{{__('Add Pricing')}}</a>
                 </div>
                 <br>
                 <div class="card">
@@ -20,13 +20,14 @@
                             </div>
                       @endif
 
-                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All Products')}}</div>
+                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All Pricing')}}</div>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">{{__('Title')}}</th>
                                 <th scope="col">{{__('Description')}}</th>
+                                <th scope="col">{{__('Price')}}</th>
                                 <th scope="col">{{__('Image')}}</th>
                                 <th scope="col">{{__('Action')}}</th>
 
@@ -34,29 +35,30 @@
                             </thead>
                             <tbody>
                                 @php($i = 1)
-                                @foreach ($products as $product)
+                                @foreach ($pricings as $price)
 
                                 <tr>
                                    <th scope="row">{{$i++}} )</th>
-                                   {{-- <th scope="row">{{$products->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
+                                   {{-- <th scope="row">{{$prices->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
                                    @if (App::getLocale() =='en')
 
-                                   <td>{{ $product->title_en}}</td>
-                                   <td>{!! $product->description_en !!}</td>
+                                   <td>{{ $price->title_en}}</td>
+                                   <td>{!! $price->description_en !!}</td>
                                    @else
-                                   <td>{{ $product->title_ar}}</td>
-                                   <td>{!! $product->description_ar !!}</td>
+                                   <td>{{ $price->title_ar}}</td>
+                                   <td>{!! $price->description_ar !!}</td>
                                    @endif
-                                    <td><img src="{{asset($product->image)}}" style="height: 40px; width:70px;" alt=""></td>
+                                   <td>{{ $price->price}}</td>
+                                    <td><img src="{{asset($price->image)}}" style="height: 40px; width:70px;" alt=""></td>
                                     <td>
-                                        <a href="{{route('edit.product' ,$product->id)}}" class="btn btn-info">{{__('Edit')}}</a>
-                                        <a href="{{route('delete.product' ,$product->id)}}" onclick="return confirm('are you sure you want to delete it')" class="btn btn-danger">{{__('Delete')}}</a>
+                                        <a href="{{route('edit.pricing' ,$price->id)}}" class="btn btn-info">{{__('Edit')}}</a>
+                                        <a href="{{route('delete.pricing' ,$price->id)}}" onclick="return confirm('are you sure you want to delete it')" class="btn btn-danger">{{__('Delete')}}</a>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div style="margin: 15px">{{ $products->links('pagination::bootstrap-4') }}</div>
+
                 </div>
             </div>
         </div>

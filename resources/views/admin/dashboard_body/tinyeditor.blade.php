@@ -5,7 +5,7 @@
     var editor_config = {
         path_absolute : "/",
         height: 300,
-        selector: "textarea.tinymce-editor",
+        selector:"textarea.tinymce-editor",
         plugins: [
             "advlist autolink lists link charmap print preview hr anchor pagebreak image",
             "searchreplace visualblocks code fullscreen",
@@ -16,6 +16,7 @@
             // 'image',
             // 'emoticons template',
             'media',
+            'lists',
             // 'insertdatetime',
             'code',
             // 'codesample',
@@ -24,7 +25,7 @@
             'searchreplace',
             'wordcount',
         ],
-        toolbar: "insertfile undo redo |codesample | ltr rtl | formatselect | styleselect | bold italic |backcolor |removeformat |alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media| emoticons |code |searchreplace|visualchars |wordcount",
+        toolbar: "insertfile undo redo |codesample | ltr rtl | formatselect | styleselect | numlist bullist | bold italic |backcolor |removeformat |alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media| emoticons |code |searchreplace|visualchars |wordcount",
         relative_urls: false,
         content_css: '//www.tiny.cloud/css/codepen.min.css'
 

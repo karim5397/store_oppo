@@ -76,8 +76,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Pricing')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Pricing')}}</a></li>
+                        <li><a href="{{route('all.pricing')}}">{{__('Pricing')}}</a></li>
+                        <li><a href="{{route('create.pricing')}}">{{__('Add Pricing')}}</a></li>
                     </ul>
                 </li>
 
@@ -95,17 +95,6 @@
                 </li>
 
 
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-google-pages"></i>
-                        <span> {{__('All Pricing')}} </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Pricing')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Pricing')}}</a></li>
-                    </ul>
-                </li>
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-google-pages"></i>
