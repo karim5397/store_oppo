@@ -2,6 +2,8 @@
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +33,18 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/user/logout' , [Controller::class , 'Logout'])->name('user.logout');
+Route::get('/user/logout' , [UserController::class , 'Logout'])->name('user.logout');
+
+
+//admin route
+Route::prefix('admin')->middleware(['auth'])->group(function(){
+    //products route
+    Route::get('/all-products' , [ProductController::class , 'index'])->name('all.products');
+    Route::get('/create/product' , [ProductController::class , 'create'])->name('create.product');
+    Route::post('/store/product' , [ProductController::class , 'store'])->name('store.product');
+    Route::get('/edit/product/{id}' , [ProductController::class , 'edit'])->name('edit.product');
+    Route::post('/update/product/{id}' , [ProductController::class , 'update'])->name('update.product');
+    Route::get('/delete/product/{id}' , [ProductController::class , 'destroy'])->name('delete.product');
+
+
+});

@@ -10,48 +10,28 @@
                 <li class="menu-title">Navigation</li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="{{route('dashboard')}}">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span> Dashboard </span>
                     </a>
                 </li>
 
-                <li>
-                    <a href="calendar.html">
+                {{-- <li>
+                    <a href="{{route('all.products')}}">
                         <i class="mdi mdi-calendar-month"></i>
-                        <span> Calendar </span>
+                        <span> Products </span>
                     </a>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-flip-horizontal"></i>
-                        <span> Layouts </span>
-                        <span class="badge badge-danger badge-pill float-right">New</span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="layouts-dark-sidebar.html">Dark Sidebar</a></li>
-                        <li><a href="layouts-small-sidebar.html">Small Sidebar</a></li>
-                        <li><a href="layouts-sidebar-collapsed.html">Sidebar Collapsed</a></li>
-                        <li><a href="layouts-unsticky.html">Unsticky Layout</a></li>
-                        <li><a href="layouts-boxed.html">Boxed Layout</a></li>
-                    </ul>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-google-pages"></i>
-                        <span> Pages </span>
+                        <span> Products </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-starter.html">Starter Page</a></li>
-                        <li><a href="pages-login.html">Login</a></li>
-                        <li><a href="pages-register.html">Register</a></li>
-                        <li><a href="pages-recoverpw.html">Recover Password</a></li>
-                        <li><a href="pages-lock-screen.html">Lock Screen</a></li>
-                        <li><a href="pages-404.html">Error 404</a></li>
-                        <li><a href="pages-500.html">Error 500</a></li>
+                        <li><a href="{{route('all.products')}}">All Products</a></li>
+                        <li><a href="{{route('create.product')}}">Create Product</a></li>
                     </ul>
                 </li>
 

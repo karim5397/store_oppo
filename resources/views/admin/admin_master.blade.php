@@ -9,13 +9,16 @@
         <meta content="Responsive bootstrap 4 admin template" name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css"  id="app-stylesheet" />
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
 
     </head>
 
@@ -31,30 +34,30 @@
 
                     <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                         <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/flags/us.jpg" alt="lang-image" height="12">
+                            <img src="{{asset('assets/images/flags/us.jpg')}}" alt="lang-image" height="12">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="assets/images/flags/germany.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                                <img src="{{asset('assets/images/flags/germany.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
                                     class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="assets/images/flags/italy.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                                <img src="{{asset('assets/images/flags/italy.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
                                     class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="assets/images/flags/spain.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                                <img src="{{asset('assets/images/flags/spain.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
                                     class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="assets/images/flags/russia.jpg" alt="lang-image" class="mr-1" height="12"> <span
+                                <img src="{{asset('assets/images/flags/russia.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
                                     class="align-middle">Russian</span>
                             </a>
 
@@ -213,8 +216,8 @@
 
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
-                            <span class="d-none d-sm-inline-block ml-1 font-weight-medium">Alex M.</span>
+                            <img src="{{asset('assets/images/users/avatar-1.jpg')}}" alt="user-image" class="rounded-circle">
+                            <span class="d-none d-sm-inline-block ml-1 font-weight-medium">{{Auth::user()->f_name}}</span>
                             <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
@@ -264,23 +267,23 @@
                 <div class="logo-box">
                     <a href="index.html" class="logo text-center logo-dark">
                         <span class="logo-lg">
-                            <img src="assets/images/logo.png" alt="" height="22">
+                            <img src="{{asset('assets/images/logo.png')}}" alt="" height="22">
                             <!-- <span class="logo-lg-text-dark">Uplon</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-lg-text-dark">U</span> -->
-                            <img src="assets/images/logo-sm.png" alt="" height="24">
+                            <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="24">
                         </span>
                     </a>
 
                     <a href="index.html" class="logo text-center logo-light">
                         <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="22">
+                            <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="22">
                             <!-- <span class="logo-lg-text-dark">Uplon</span> -->
                         </span>
                         <span class="logo-sm">
                             <!-- <span class="logo-lg-text-dark">U</span> -->
-                            <img src="assets/images/logo-sm-light.png" alt="" height="24">
+                            <img src="{{asset('assets/images/logo-sm-light.png')}}" alt="" height="24">
                         </span>
                     </a>
                 </div>
@@ -465,19 +468,9 @@
 
             <div class="content-page">
 
-
                 <!-- Start Content-->
-                <div class="content">
-
-                    <div class="container-fluid">
-
-                        @yield('admin')
-
-                    </div>
-                     <!-- end container-fluid -->
-
-                </div>
-                 <!-- end content -->
+                @yield('admin')
+                <!-- end content -->
 
 
 
@@ -515,7 +508,7 @@
                 <div class="p-4">
 
                     <div class="mb-2">
-                        <img src="assets/images/layouts/light.png" class="img-fluid img-thumbnail" alt="">
+                        <img src="{{asset('assets/images/layouts/light.png')}}" class="img-fluid img-thumbnail" alt="">
                     </div>
                     <div class="custom-control custom-switch mb-3">
                         <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
@@ -523,7 +516,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <img src="assets/images/layouts/dark.png" class="img-fluid img-thumbnail" alt="">
+                        <img src="{{asset('assets/images/layouts/dark.png')}}" class="img-fluid img-thumbnail" alt="">
                     </div>
                     <div class="custom-control custom-switch mb-3">
                         <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css"
@@ -532,14 +525,14 @@
                     </div>
 
                     <div class="mb-2">
-                        <img src="assets/images/layouts/rtl.png" class="img-fluid img-thumbnail" alt="">
+                        <img src="{{asset('assets/images/layouts/rtl.png')}}" class="img-fluid img-thumbnail" alt="">
                     </div>
                     <div class="custom-control custom-switch mb-5">
                         <input type="checkbox" class="custom-control-input theme-choice" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css" />
                         <label class="custom-control-label" for="rtl-mode-switch">RTL Mode</label>
                     </div>
 
-                    
+
 
 
                 </div>
@@ -550,13 +543,20 @@
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
-
+        @yield('script')
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
+        <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.slim.min.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+        {{-- <script src="{{asset('assets/js/tinymce.min.js')}}"></script> --}}
+        <script src="{{asset('assets/js/vendor.min.js')}}"></script>
 
         <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
+        @include('admin.dashboard_body.tinyeditor')
+
+
 
     </body>
 
