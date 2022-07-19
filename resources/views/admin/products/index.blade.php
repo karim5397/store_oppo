@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col">
                 <div class="mt-3">
-                    <a href="{{route('create.product')}}" class="btn btn-primary"> Add products</a>
+                    <a href="{{route('create.product')}}" class="btn btn-primary">{{__('Add Product')}}</a>
                 </div>
                 <br>
                 <div class="card">
@@ -20,15 +20,15 @@
                             </div>
                       @endif
 
-                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">All products</div>
+                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All Products')}}</div>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">{{__('Title')}}</th>
+                                <th scope="col">{{__('Description')}}</th>
+                                <th scope="col">{{__('Image')}}</th>
+                                <th scope="col">{{__('Action')}}</th>
 
                             </tr>
                             </thead>
@@ -39,12 +39,18 @@
                                 <tr>
                                    <th scope="row">{{$i++}} )</th>
                                    {{-- <th scope="row">{{$products->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
-                                    <td>{{ $product->title}}</td>
-                                    <td>{{ $product->description}}</td>
+                                   @if (App::getLocale() =='en')
+
+                                   <td>{{ $product->title_en}}</td>
+                                   <td>{!! $product->description_en !!}</td>
+                                   @else
+                                   <td>{{ $product->title_ar}}</td>
+                                   <td>{!! $product->description_ar !!}</td>
+                                   @endif
                                     <td><img src="{{asset($product->image)}}" style="height: 40px; width:70px;" alt=""></td>
                                     <td>
-                                        <a href="{{route('edit.product' ,$product->id)}}" class="btn btn-info">Edit</a>
-                                        <a href="{{route('delete.product' ,$product->id)}}" onclick="return confirm('are you sure you want to delete it')" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('edit.product' ,$product->id)}}" class="btn btn-info">{{__('Edit')}}</a>
+                                        <a href="{{route('delete.product' ,$product->id)}}" onclick="return confirm('are you sure you want to delete it')" class="btn btn-danger">{{__('Delete')}}</a>
                                     </td>
                                 </tr>
                                 @endforeach

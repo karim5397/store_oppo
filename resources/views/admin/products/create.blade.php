@@ -11,28 +11,28 @@
             <div class="row">
                 <div class="mb-3 my-5 col-6">
                     <label  class="form-label">{{__('Title English')}}</label>
-                    <input type="text" class="form-control" placeholder="Write Title" name="title_en">
+                    <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_en">
                     @error('title_en')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 my-5 col-6">
                     <label  class="form-label">{{__('Title Arabic')}}</label>
-                    <input type="text" class="form-control" placeholder="Write Title" name="title_ar">
+                    <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_ar">
                     @error('title_ar')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label">{{__('Description English')}}</label>
-                    <textarea class="form-control tinymce-editor" rows="3" name="description_en"></textarea>
+                    <textarea class="form-control tinymce-editor" rows="3" name="description_en" ></textarea>
                     @error('description_en')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label">{{__('Description Arabic')}}</label>
-                    <textarea class="form-control tinymce-editor" rows="3" name="description_ar"></textarea>
+                    <textarea class="form-control tinymce-editor" rows="3" name="description_ar" ></textarea>
                     @error('description_ar')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror

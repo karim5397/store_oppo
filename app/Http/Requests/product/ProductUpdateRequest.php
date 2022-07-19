@@ -23,8 +23,10 @@ class ProductUpdateRequest extends FormRequest
      */
     public function messages(){
         return[
-            "title.required"=>"please input the title",
-            "description.required"=>"please input the description",
+            "title_en.required"=>"please input the title",
+            "title_ar.required"=>"please input the title",
+            "description_en.required"=>"please input the description",
+            "description_ar.required"=>"please input the description",
             "image.required"=>"please put the image",
         ];
 
@@ -32,8 +34,10 @@ class ProductUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            "title"=>"required|max:255",
-            "description"=>"required",
+            "title_en"=>"required|max:255",
+            "title_ar"=>"required|max:255",
+            "description_en"=>"required",
+            "description_ar"=>"required",
             "image"=>"sometimes|mimes:png,jpg,jpeg,webp",
         ];
     }

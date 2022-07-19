@@ -16,12 +16,7 @@
                     </a>
                 </li>
 
-                {{-- <li>
-                    <a href="{{route('all.products')}}">
-                        <i class="mdi mdi-calendar-month"></i>
-                        <span> Products </span>
-                    </a>
-                </li> --}}
+
 
                 <li>
                     <a href="javascript: void(0);">
@@ -31,173 +26,159 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="{{route('all.products')}}">{{__('Products')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Create Product')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Product')}}</a></li>
                     </ul>
                 </li>
 
+
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-content-copy"></i>
-                        <span> Extra Pages </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('Contact Us')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="pages-timeline.html">Timeline</a></li>
-                        <li><a href="pages-invoice.html">Invoice</a></li>
-                        <li><a href="pages-pricing.html">Pricing</a></li>
-                        <li><a href="pages-gallery.html">Gallery</a></li>
-                        <li><a href="pages-maintenance.html">Maintenance</a></li>
-                        <li><a href="pages-comingsoon.html">Coming Soon</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Contacts')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Contact')}}</a></li>
                     </ul>
                 </li>
 
-                <li class="menu-title mt-2">Components</li>
 
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-format-underline"></i>
-                        <span> User Interface </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Features')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="ui-buttons.html">Buttons</a></li>
-                        <li><a href="ui-cards.html">Cards</a></li>
-                        <li><a href="ui-dropdowns.html">Dropdowns</a></li>
-                        <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
-                        <li><a href="ui-navs.html">Navs</a></li>
-                        <li><a href="ui-progress.html">Progress</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-notification.html">Notification</a></li>
-                        <li><a href="ui-alerts.html">Alerts</a></li>
-                        <li><a href="ui-carousel.html">Carousel</a></li>
-                        <li><a href="ui-bootstrap.html">Bootstrap UI</a></li>
-                        <li><a href="ui-typography.html">Typography</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Feature')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Feature')}}</a></li>
                     </ul>
                 </li>
 
+
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-package-variant-closed"></i>
-                        <span> Components </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('Gallery')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="components-grid.html">Grid</a></li>
-                        <li><a href="components-range-sliders.html">Range sliders</a></li>
-                        <li><a href="components-sweet-alert.html">Sweet Alerts</a></li>
-                        <li><a href="components-ratings.html">Ratings</a></li>
-                        <li><a href="components-treeview.html">Treeview</a></li>
-                        <li><a href="components-tour.html">Tour</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Gallery')}}</a></li>
                     </ul>
                 </li>
 
+
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-puzzle-outline"></i>
-                        <span> Widgets </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Pricing')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="widgets-tiles.html">Tile Box</a></li>
-                        <li><a href="widgets-charts.html">Chart Widgets</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Pricing')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Pricing')}}</a></li>
                     </ul>
                 </li>
 
+
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-black-mesa"></i>
-                        <span> Icons </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Services')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="icons-materialdesign.html">Material Design</a></li>
-                        <li><a href="icons-ionicons.html">Ion Icons</a></li>
-                        <li><a href="icons-fontawesome.html">Font awesome</a></li>
-                        <li><a href="icons-themify.html">Themify Icons</a></li>
-                        <li><a href="icons-simple-line.html">Simple line Icons</a></li>
-                        <li><a href="icons-weather.html">Weather Icons</a></li>
-                        <li><a href="icons-pe7.html">PE7 Icons</a></li>
-                        <li><a href="icons-typicons.html">Typicons</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Services')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Service')}}</a></li>
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript: void(0);">
-                        <i class="mdi mdi-file-document-box-check-outline"></i>
-                        <span class="badge badge-warning badge-pill float-right">8</span>
-                        <span> Forms </span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="form-elements.html">General Elements</a></li>
-                        <li><a href="form-advanced.html">Advanced Form</a></li>
-                        <li><a href="form-validation.html">Form Validation</a></li>
-                        <li><a href="form-pickers.html">Form Pickers</a></li>
-                        <li><a href="form-wizard.html">Form Wizard</a></li>
-                        <li><a href="form-mask.html">Form Masks</a></li>
-                        <li><a href="form-uploads.html">Multiple File Upload</a></li>
-                        <li><a href="form-xeditable.html">X-editable</a></li>
-                    </ul>
-                </li>
 
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-table-settings"></i>
-                        <span> Tables </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Pricing')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="tables-basic.html">Basic Tables</a></li>
-                        <li><a href="tables-datatable.html">Data Tables</a></li>
-                        <li><a href="tables-responsive.html">Responsive Table</a></li>
-                        <li><a href="tables-tablesaw.html">Tablesaw</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Pricing')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Pricing')}}</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-poll"></i>
-                        <span> Charts </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('Slider')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="charts-flot.html">Flot Charts</a></li>
-                        <li><a href="charts-morris.html">Morris Charts</a></li>
-                        <li><a href="charts-chartjs.html">Chartjs</a></li>
-                        <li><a href="charts-peity.html">Peity Charts</a></li>
-                        <li><a href="charts-chartist.html">Chartist Charts</a></li>
-                        <li><a href="charts-c3.html">C3 Charts</a></li>
-                        <li><a href="charts-sparkline.html">Sparkline Charts</a></li>
-                        <li><a href="charts-knob.html">Jquery Knob</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Slider')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Slider')}}</a></li>
                     </ul>
                 </li>
 
-                <li class="menu-title mt-2">More</li>
 
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="mdi mdi-share-variant"></i>
-                        <span> Multi Level </span>
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Team Members')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="nav-second-level nav" aria-expanded="false">
-                        <li>
-                            <a href="javascript: void(0);">Level 1.1</a>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" aria-expanded="false">Level 1.2
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-third-level nav" aria-expanded="false">
-                                <li>
-                                    <a href="javascript: void(0);">Level 2.1</a>
-                                </li>
-                                <li>
-                                    <a href="javascript: void(0);">Level 2.2</a>
-                                </li>
-                            </ul>
-                        </li>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('all.products')}}">{{__('Team Members')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Member')}}</a></li>
                     </ul>
                 </li>
+
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Testimonials')}} </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('all.products')}}">{{__('Testimonials')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Testimonial')}}</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Users')}} </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('all.products')}}">{{__('Users')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add User')}}</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-google-pages"></i>
+                        <span> {{__('All Touchs')}} </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('all.products')}}">{{__('Touchs')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Add Touch')}}</a></li>
+                    </ul>
+                </li>
+
+
+
+
+
+
+
+
+
+
             </ul>
 
         </div>
