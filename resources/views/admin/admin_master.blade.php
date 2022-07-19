@@ -16,10 +16,16 @@
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- App css -->
+        @if (App::getLocale() =='en')
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
         <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
+        @else
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/app-rtl.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
 
+        @endif
     </head>
 
     <body>
@@ -32,7 +38,7 @@
             <div class="navbar-custom">
                 <ul class="list-unstyled topnav-menu float-right mb-0">
 
-                    <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
+                    {{-- <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
                         <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <img src="{{asset('assets/images/flags/us.jpg')}}" alt="lang-image" height="12">
                         </a>
@@ -62,7 +68,56 @@
                             </a>
 
                         </div>
+                    </li> --}}
+
+
+                    <li class="dropdown notification-list dropdown d-none d-lg-inline-block ml-2">
+                        <a class="nav-link dropdown-toggle mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="{{asset('assets/images/flags/us.jpg')}}" alt="lang-image" height="12">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown  text-center">
+                            <!-- item-->
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a href="javascript:void(0);"  >
+
+                                    <a  class="dropdown-item notify-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+
+
+                            </a>
+                            @endforeach
+                            {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <img src="{{asset('assets/images/flags/germany.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
+                                    class="align-middle">German</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <img src="{{asset('assets/images/flags/italy.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
+                                    class="align-middle">Italian</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <img src="{{asset('assets/images/flags/spain.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
+                                    class="align-middle">Spanish</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <img src="{{asset('assets/images/flags/russia.jpg')}}" alt="lang-image" class="mr-1" height="12"> <span
+                                    class="align-middle">Russian</span>
+                            </a> --}}
+
+                        </div>
                     </li>
+
+
+
+
+
+
 
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -549,7 +604,6 @@
         <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery.slim.min.js')}}"></script>
         <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-        {{-- <script src="{{asset('assets/js/tinymce.min.js')}}"></script> --}}
         <script src="{{asset('assets/js/vendor.min.js')}}"></script>
 
         <!-- App js -->

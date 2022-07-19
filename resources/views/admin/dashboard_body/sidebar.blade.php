@@ -12,7 +12,7 @@
                 <li>
                     <a href="{{route('dashboard')}}">
                         <i class="mdi mdi-view-dashboard"></i>
-                        <span> Dashboard </span>
+                        <span> {{__('Dashboard')}} </span>
                     </a>
                 </li>
 
@@ -26,12 +26,12 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-google-pages"></i>
-                        <span> Products </span>
+                        <span> {{__('All Products')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">All Products</a></li>
-                        <li><a href="{{route('create.product')}}">Create Product</a></li>
+                        <li><a href="{{route('all.products')}}">{{__('Products')}}</a></li>
+                        <li><a href="{{route('create.product')}}">{{__('Create Product')}}</a></li>
                     </ul>
                 </li>
 

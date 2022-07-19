@@ -144,9 +144,7 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
-            'title.required' => 'please input the title.',
         ],
-
     ],
 
     /*
@@ -160,8 +158,6 @@ return [
     |
     */
 
-    'attributes' => [
-        'title.required' => 'please input the title.',
-    ],
+    'attributes' => [],
 
 ];
