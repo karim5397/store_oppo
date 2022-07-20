@@ -10,9 +10,23 @@ use App\Http\Requests\product\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products=Product::latest()->Paginate(5);
+        //for search
+        $products = Product::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('content_en', 'like', '%' . $request->search . '%')
+                    ->orWhere('title_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('title_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_ar', 'like', '%'  . $request->search . '%');
+            });
+        })->whereNotNull('id')->Paginate(5);
+
+
+
+
+        // $products=Product::latest()->Paginate(5);
         return view('admin.products.index' , compact('products'));
     }
 

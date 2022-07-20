@@ -6,7 +6,7 @@
 
         <h1>{{__('Add Pricing')}}</h1>
 
-        <form action="{{route('store.pricing')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('prices.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="row">
                 <div class="mb-3 my-5 col-6">

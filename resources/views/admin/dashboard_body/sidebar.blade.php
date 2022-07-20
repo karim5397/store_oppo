@@ -38,8 +38,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Contacts')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Contact')}}</a></li>
+                        <li><a href="{{route('contacts.index')}}">{{__('Contacts')}}</a></li>
+                        <li><a href="{{route('contacts.create')}}">{{__('Add Contact')}}</a></li>
                     </ul>
                 </li>
 
@@ -76,8 +76,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.pricing')}}">{{__('Pricing')}}</a></li>
-                        <li><a href="{{route('create.pricing')}}">{{__('Add Pricing')}}</a></li>
+                        <li><a href="{{route('prices.index')}}">{{__('Pricing')}}</a></li>
+                        <li><a href="{{route('prices.create')}}">{{__('Add Pricing')}}</a></li>
                     </ul>
                 </li>
 
@@ -141,8 +141,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Users')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add User')}}</a></li>
+                        <li><a href="{{route('users.index')}}">{{__('Users')}}</a></li>
+                        <li><a href="{{route('users.create')}}">{{__('Add User')}}</a></li>
                     </ul>
                 </li>
 

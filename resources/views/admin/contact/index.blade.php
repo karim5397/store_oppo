@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col">
                 <div class="mt-3">
-                    <a href="{{route('prices.create')}}" class="btn btn-primary">{{__('Add price')}}</a>
+                    <a href="{{route('contacts.create')}}" class="btn btn-primary">{{__('Add Contact')}}</a>
                 </div>
                 <br>
                 <div class="card">
@@ -20,39 +20,37 @@
                             </div>
                       @endif
 
-                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All price')}}</div>
+                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All Contacts')}}</div>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">{{__('Title')}}</th>
-                                <th scope="col">{{__('Description')}}</th>
-                                <th scope="col">{{__('price')}}</th>
-                                <th scope="col">{{__('Image')}}</th>
+                                <th scope="col">{{__('Phone')}}</th>
+                                <th scope="col">{{__('Email')}}</th>
+                                <th scope="col">{{__('Address')}}</th>
                                 <th scope="col">{{__('Action')}}</th>
 
                             </tr>
                             </thead>
                             <tbody>
                                 @php($i = 1)
-                                @foreach ($prices as $price)
+                                @foreach ($contacts as $contact)
 
                                 <tr>
                                    <th scope="row">{{$i++}} )</th>
-                                   {{-- <th scope="row">{{$prices->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
-                                   @if (App::getLocale() =='en')
+                                   {{-- <th scope="row">{{$contacts->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
+                                   <td>{{ $contact->phone}}</td>
+                                   <td>{{ $contact->email}}</td>
 
-                                   <td>{{ $price->title_en}}</td>
-                                   <td>{!! $price->description_en !!}</td>
+                                   @if (App::getLocale() =='en')
+                                   <td>{!! $contact->address_en !!}</td>
                                    @else
-                                   <td>{{ $price->title_ar}}</td>
-                                   <td>{!! $price->description_ar !!}</td>
+                                   <td>{!! $contact->address_ar !!}</td>
                                    @endif
-                                   <td>{{ $price->price}}</td>
-                                    <td><img src="{{asset($price->image)}}" style="height: 40px; width:70px;" alt=""></td>
+
                                     <td>
-                                        <a href="{{route('prices.edit' ,$price->id)}}" class="btn btn-info">{{__('Edit')}}</a>
-                                        <form action="{{route('prices.destroy',$price->id)}}" method="post" style="display: inline">
+                                        <a href="{{route('contacts.edit' ,$contact->id)}}" class="btn btn-info">{{__('Edit')}}</a>
+                                        <form action="{{route('contacts.destroy' ,$contact->id)}}" method="post" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" value="{{__('Delete')}}" class="btn btn-danger" onclick="return confirm('are you sure you want to delete it')">
@@ -62,7 +60,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-
+                        <div style="margin: 15px">{{ $contacts->links('pagination::bootstrap-4') }}</div>
                 </div>
             </div>
         </div>

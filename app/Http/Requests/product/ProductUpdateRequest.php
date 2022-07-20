@@ -38,7 +38,7 @@ class ProductUpdateRequest extends FormRequest
             "title_ar"=>"required|max:255",
             "description_en"=>"required",
             "description_ar"=>"required",
-            "image"=>"sometimes|mimes:png,jpg,jpeg,webp",
+            "image"=>"sometimes|mimes:png,jpg,jpeg,webp,gif,svg",
         ];
     }
 }

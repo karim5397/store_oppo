@@ -249,7 +249,7 @@
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{route('user.logout')}}" class="dropdown-item notify-item">
                                 <i class="mdi mdi-logout-variant"></i>
                                 <span>Logout</span>
                             </a>
@@ -297,7 +297,7 @@
                         </button>
                     </li>
 
-                    <li class="d-none d-sm-block">
+                    {{-- <li class="d-none d-sm-block">
                         <form class="app-search">
                             <div class="app-search-box">
                                 <div class="input-group">
@@ -310,7 +310,7 @@
                                 </div>
                             </div>
                         </form>
-                    </li>
+                    </li> --}}
 
                     <li class="dropdown dropdown-mega d-none d-lg-block">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">

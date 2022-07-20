@@ -4,41 +4,55 @@
 
     <div class="container-fluid">
 
-        <h1>{{__('Add Product')}}</h1>
+        <h1>{{__('Add User')}}</h1>
 
-        <form action="{{route('store.product')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="row">
                 <div class="mb-3 my-5 col-6">
-                    <label  class="form-label">{{__('Title English')}}</label>
-                    <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_en">
-                    @error('title_en')
+                    <label  class="form-label">{{__('First Name')}}</label>
+                    <input type="text" class="form-control" placeholder="{{__('Write First Name')}}" name="f_name">
+                    @error('f_name')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 my-5 col-6">
-                    <label  class="form-label">{{__('Title Arabic')}}</label>
-                    <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_ar">
-                    @error('title_ar')
+                    <label  class="form-label">{{__('Last Name')}}</label>
+                    <input type="text" class="form-control" placeholder="{{__('Write Last Name')}}" name="l_name">
+                    @error('l_name')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Description English')}}</label>
-                    <textarea class="form-control tinymce-editor" rows="3" name="description_en" ></textarea>
-                    @error('description_en')
+                    <label class="form-label">{{__('Email')}}</label>
+                    <input type="email" class="form-control" placeholder="{{__('Write Your Email')}}" name="email">
+                    @error('email')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Description Arabic')}}</label>
-                    <textarea class="form-control tinymce-editor" rows="3" name="description_ar" ></textarea>
-                    @error('description_ar')
+                    <label class="form-label">{{__('Phone')}}</label>
+                    <input type="text" class="form-control" placeholder="{{__('Write Your Phone')}}" name="phone">
+                    @error('phone')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Product Image')}}</label>
+                    <label class="form-label">{{__('Password')}}</label>
+                    <input type="password" class="form-control" placeholder="{{__('Write Your Password')}}" name="password">
+                    @error('password')
+                     <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3 col-6">
+                    <label class="form-label">{{__('Confirm Password')}}</label>
+                    <input type="password" class="form-control" placeholder="{{__('Write Your Password')}}" name="password_confirmation">
+                    @error('password')
+                     <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3 col-6">
+                    <label class="form-label">{{__('User Image')}}</label>
                     <input class="form-control" type="file" name="image">
                     @error('image')
                      <span class="text-danger">{{ $message }}</span>
@@ -53,8 +67,5 @@
 
 
 </div>
-
-@endsection
-@section('script')
 
 @endsection

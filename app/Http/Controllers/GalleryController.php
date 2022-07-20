@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pricing;
-use Intervention\Image\Facades\Image;
-use App\Http\Requests\pricing\StorePricingRequest;
-use App\Http\Requests\pricing\UpdatePricingRequest;
-use App\Http\Requests\pricing\StorePricingRequest as PricingStorePricingRequest;
-use App\Models\User;
+use Illuminate\Http\Request;
 
-class PricingController extends Controller
+class GalleryController extends Controller
 {
     public function index()
     {

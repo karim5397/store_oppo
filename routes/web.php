@@ -1,10 +1,17 @@
 <?php
 
 use App\Models\User;
-use App\Http\Controllers\PricingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TestimomialController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -49,15 +56,16 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'l
             Route::post('/update/product/{id}' , [ProductController::class , 'update'])->name('update.product');
             Route::get('/delete/product/{id}' , [ProductController::class , 'destroy'])->name('delete.product');
 
-            //pricing route
-            Route::get('/all-pricing' , [PricingController::class , 'index'])->name('all.pricing');
-            Route::get('/create/pricing' , [PricingController::class , 'create'])->name('create.pricing');
-            Route::post('/store/pricing' , [PricingController::class , 'store'])->name('store.pricing');
-            Route::get('/edit/pricing/{id}' , [PricingController::class , 'edit'])->name('edit.pricing');
-            Route::post('/update/pricing/{id}' , [PricingController::class , 'update'])->name('update.pricing');
-            Route::get('/delete/pricing/{id}' , [PricingController::class , 'destroy'])->name('delete.pricing');
 
-
+            Route::resource('prices', PricingController::class); //prices
+            Route::resource('users' ,UserController::class); //users
+            Route::resource('contacts' ,ContactController::class); //contacts
+            Route::resource('features' ,FeatureController::class); //features
+            Route::resource('gallery' ,GalleryController::class); //gallery
+            Route::resource('services' ,ServiceController::class); //services
+            Route::resource('slider' ,SliderController::class); //slider
+            Route::resource('members' ,MemberController::class); //members
+            Route::resource('testimonials' ,TestimomialController::class); //testimonials
         });
 
 

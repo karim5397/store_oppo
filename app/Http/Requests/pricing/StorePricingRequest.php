@@ -21,8 +21,6 @@ class StorePricingRequest extends FormRequest
      *
      * @return array
      */
-
-
     public function messages(){
         return[
             "title_en.required"=>"please input the title",
@@ -46,3 +44,4 @@ class StorePricingRequest extends FormRequest
         ];
     }
 }
+
