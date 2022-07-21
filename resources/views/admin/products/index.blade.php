@@ -6,12 +6,13 @@
         <div class="row">
             <div class="col">
                 <div class="mt-3">
-                    <a href="{{route('create.product')}}" class="btn btn-primary">{{__('Add Product')}}</a>
-                    <div class="row">
-                        <form action="{{ route('users.index') }}" method="GET" class="searchformstyle">
+                    <div class="row d-flex justify-content-between mx-1">
+                        <a href="{{route('create.product')}}" class="btn btn-primary">{{__('Add Product')}}</a>
+
+                        <form action="{{ route('all.products') }}" method="GET" class="d-flex">
                             @csrf
                         <input type="search" name="search" data-kt-user-table-filter="search" value="{{request()->search}}" placeholder="{{__('Search')}}" class="form-control form-control-solid w-250px ps-14">
-                        <button type="submit" class="btn btn-bg-info searchindex">
+                        <button type="submit" class="btn btn-info ">
                             {{__('Search')}}
                         </button>
                     </form>

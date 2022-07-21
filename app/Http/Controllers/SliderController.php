@@ -2,80 +2,90 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use App\Http\Requests\slider\SliderRequest;
 
 class SliderController extends Controller
 {
-    public function index()
+  public function index(Request $request)
     {
-        $prices=Pricing::latest()->get();
-        return view('admin.pricing.index' , compact('prices'));
+        $sliders = Slider::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('title_en', 'like', '%' . $request->search . '%')
+                    ->orWhere('title_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_ar', 'like', '%'  . $request->search . '%');
+            });
+        })->whereNotNull('id')->Paginate(5);
+        return view('admin.sliders.index' , compact('sliders'));
     }
 
 
     public function create()
     {
-        return view('admin.pricing.create');
+        return view('admin.sliders.create');
     }
 
 
-    public function store(StorePricingRequest $request)
+    public function store(SliderRequest $request)
     {
         //upload hasFile image
-        $pricing_img=$request->file('image');
-        $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
+        $slider_img=$request->file('image');
+        $img_ext=hexdec(uniqid()). '.' . $slider_img->getClientOriginalExtension();
         $img_path="frontend/assets/images/";
         $last_img=$img_path . $img_ext;
-        Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+        Image::make($slider_img)->resize(600 , 400)->save($last_img);
         //upload hasFile image
 
 
-        Pricing::create(array_merge($request->validated(), ['image'=>$last_img]));
-        return redirect()->route('prices.index')->with('message' , 'Pricing Created Successfully');
+        Slider::create(array_merge($request->validated(), ['image'=>$last_img]));
+        return redirect()->route('sliders.index')->with('message' , 'Slider Created Successfully');
     }
 
 
-    public function edit(Pricing $price)
+    public function edit(Slider $slider)
     {
-        $price=Pricing::find($price->id);
-        return view('admin.pricing.edit' , compact('price'));
+        $slider=Slider::find($slider->id);
+        return view('admin.sliders.edit' , compact('slider'));
     }
 
-    public function update(UpdatePricingRequest $request ,Pricing $price )
+    public function update(SliderRequest $request ,Slider $slider )
     {
         $old_image=$request->old_image;
-        $pricing_img=$request->file('image');
-        if($pricing_img){
-            $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
+        $slider_img=$request->file('image');
+        if($slider_img){
+            $img_ext=hexdec(uniqid()). '.' . $slider_img->getClientOriginalExtension();
             $img_path='frontend/assets/images/';
             $last_img=$img_path . $img_ext;
-            Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+            Image::make($slider_img)->resize(600 , 400)->save($last_img);
             unlink($old_image);
 
 
 
-            $price=Pricing::find($price->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $slider=Slider::find($slider->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
+            return redirect()->route('sliders.index')->with('message' , 'The Slider Is Updated Successfully');
         }else{
 
 
-            // $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $slider=Slider::find($slider->id)->update($request->safe()->except(['image']));
+            return redirect()->route('sliders.index')->with('message' , 'The Slider Is Updated Successfully');
         }
     }
 
     public function destroy($id)
     {
-        $price=Pricing::findOrFail($id);
-        if($price === null){
-            $price=Pricing::findOrFail($id);
-            $price->delete();
+        $slider=Slider::findOrFail($id);
+        if($slider === null){
+            $slider=Slider::findOrFail($id);
+            $slider->delete();
         }else{
-            $price->delete();
-            $old_image=$price->image;
+            $slider->delete();
+            $old_image=$slider->image;
             unlink($old_image);
         }
 
-        return redirect()->route('prices.index')->with('message' , 'The Pricing Is Deleted Successfully');
+        return redirect()->route('sliders.index')->with('message' , 'The Slider Is Deleted Successfully');
     }
 }

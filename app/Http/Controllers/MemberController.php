@@ -2,80 +2,90 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use App\Http\Requests\member\MemberRequest;
 
 class MemberController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $prices=Pricing::latest()->get();
-        return view('admin.pricing.index' , compact('prices'));
+        $members = Member::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('name_en', 'like', '%' . $request->search . '%')
+                    ->orWhere('name_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_ar', 'like', '%'  . $request->search . '%');
+            });
+        })->whereNotNull('id')->Paginate(5);
+        return view('admin.members.index' , compact('members'));
     }
 
 
     public function create()
     {
-        return view('admin.pricing.create');
+        return view('admin.members.create');
     }
 
 
-    public function store(StorePricingRequest $request)
+    public function store(MemberRequest $request)
     {
         //upload hasFile image
-        $pricing_img=$request->file('image');
-        $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
-        $img_path="frontend/assets/images/";
+        $member_img=$request->file('image');
+        $img_ext=hexdec(uniqid()). '.' . $member_img->getClientOriginalExtension();
+        $img_path="frontend/assets/images/members/";
         $last_img=$img_path . $img_ext;
-        Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+        Image::make($member_img)->resize(300 , 300)->save($last_img);
         //upload hasFile image
 
 
-        Pricing::create(array_merge($request->validated(), ['image'=>$last_img]));
-        return redirect()->route('prices.index')->with('message' , 'Pricing Created Successfully');
+        Member::create(array_merge($request->validated(), ['image'=>$last_img]));
+        return redirect()->route('members.index')->with('message' , 'Member Created Successfully');
     }
 
 
-    public function edit(Pricing $price)
+    public function edit(Member $member)
     {
-        $price=Pricing::find($price->id);
-        return view('admin.pricing.edit' , compact('price'));
+        $member=Member::find($member->id);
+        return view('admin.members.edit' , compact('member'));
     }
 
-    public function update(UpdatePricingRequest $request ,Pricing $price )
+    public function update(MemberRequest $request ,Member $member )
     {
         $old_image=$request->old_image;
-        $pricing_img=$request->file('image');
-        if($pricing_img){
-            $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
-            $img_path='frontend/assets/images/';
+        $member_img=$request->file('image');
+        if($member_img){
+            $img_ext=hexdec(uniqid()). '.' . $member_img->getClientOriginalExtension();
+            $img_path='frontend/assets/images/members/';
             $last_img=$img_path . $img_ext;
-            Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+            Image::make($member_img)->resize(300 , 300)->save($last_img);
             unlink($old_image);
 
 
 
-            $price=Pricing::find($price->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $member=Member::find($member->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
+            return redirect()->route('members.index')->with('message' , 'The Member Is Updated Successfully');
         }else{
 
 
-            // $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $member=Member::find($member->id)->update($request->safe()->except(['image']));
+            return redirect()->route('members.index')->with('message' , 'The Member Is Updated Successfully');
         }
     }
 
     public function destroy($id)
     {
-        $price=Pricing::findOrFail($id);
-        if($price === null){
-            $price=Pricing::findOrFail($id);
-            $price->delete();
+        $member=Member::findOrFail($id);
+        if($member === null){
+            $member=Member::findOrFail($id);
+            $member->delete();
         }else{
-            $price->delete();
-            $old_image=$price->image;
+            $member->delete();
+            $old_image=$member->image;
             unlink($old_image);
         }
 
-        return redirect()->route('prices.index')->with('message' , 'The Pricing Is Deleted Successfully');
+        return redirect()->route('members.index')->with('message' , 'The Member Is Deleted Successfully');
     }
 }

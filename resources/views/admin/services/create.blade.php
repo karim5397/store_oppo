@@ -4,9 +4,9 @@
 
     <div class="container-fluid">
 
-        <h1>{{__('Add Product')}}</h1>
+        <h1>{{__('Add Services')}}</h1>
 
-        <form action="{{route('store.product')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('services.store')}}" method="POST">
                 @csrf
             <div class="row">
                 <div class="mb-3 my-5 col-6">
@@ -23,27 +23,14 @@
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Description English')}}</label>
-                    <textarea class="form-control tinymce-editor" rows="3" name="description_en" ></textarea>
-                    @error('description_en')
+                <div class="mb-3 my-5 col-6">
+                    <label  class="form-label">{{__('Icon')}}</label>
+                    <input type="text" class="form-control" placeholder="{{__('Choose Icon')}}" name="icon" data-fa-browser>
+                    @error('icon')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Description Arabic')}}</label>
-                    <textarea class="form-control tinymce-editor" rows="3" name="description_ar" ></textarea>
-                    @error('description_ar')
-                     <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Product Image')}}</label>
-                    <input class="form-control" type="file" name="image">
-                    @error('image')
-                     <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
+
             </div>
             <input type="submit" value="{{__('Create')}}" class="btn btn-primary">
 
@@ -55,6 +42,4 @@
 </div>
 
 @endsection
-@section('script')
 
-@endsection

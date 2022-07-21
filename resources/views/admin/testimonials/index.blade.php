@@ -6,7 +6,17 @@
         <div class="row">
             <div class="col">
                 <div class="mt-3">
-                    <a href="{{route('create.product')}}" class="btn btn-primary">{{__('Add Product')}}</a>
+                    <div class="row d-flex justify-content-between mx-1">
+                        <a href="{{route('testimonials.create')}}" class="btn btn-primary">{{__('Add Testimonial')}}</a>
+
+                        <form action="{{ route('testimonials.index') }}" method="GET" class="d-flex">
+                            @csrf
+                        <input type="search" name="search" data-kt-user-table-filter="search" value="{{request()->search}}" placeholder="{{__('Search')}}" class="form-control form-control-solid w-250px ps-14">
+                        <button type="submit" class="btn btn-info ">
+                            {{__('Search')}}
+                        </button>
+                    </form>
+                </div>
                 </div>
                 <br>
                 <div class="card">
@@ -20,12 +30,13 @@
                             </div>
                       @endif
 
-                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All Products')}}</div>
+                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All testimonials')}}</div>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">{{__('Title')}}</th>
+                                <th scope="col">{{__('Content')}}</th>
                                 <th scope="col">{{__('Description')}}</th>
                                 <th scope="col">{{__('Image')}}</th>
                                 <th scope="col">{{__('Action')}}</th>
@@ -34,29 +45,35 @@
                             </thead>
                             <tbody>
                                 @php($i = 1)
-                                @foreach ($products as $product)
+                                @foreach ($testimonials as $testimonial)
 
                                 <tr>
                                    <th scope="row">{{$i++}} )</th>
-                                   {{-- <th scope="row">{{$products->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
+                                   {{-- <th scope="row">{{$testimonials->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  --> --}}
                                    @if (App::getLocale() =='en')
 
-                                   <td>{{ $product->title_en}}</td>
-                                   <td>{!! $product->description_en !!}</td>
+                                   <td>{{ $testimonial->title_en}}</td>
+                                   <td>{!! $testimonial->content_en !!}</td>
+                                   <td>{!! $testimonial->description_en !!}</td>
                                    @else
-                                   <td>{{ $product->title_ar}}</td>
-                                   <td>{!! $product->description_ar !!}</td>
+                                   <td>{{ $testimonial->title_ar}}</td>
+                                   <td>{!! $testimonial->content_ar !!}</td>
+                                   <td>{!! $testimonial->description_ar !!}</td>
                                    @endif
-                                    <td><img src="{{asset($product->image)}}" style="height: 40px; width:70px;" alt=""></td>
+                                    <td><img src="{{asset($testimonial->image)}}" style="height: 40px; width:70px;" alt=""></td>
                                     <td>
-                                        <a href="{{route('edit.product' ,$product->id)}}" class="btn btn-info">{{__('Edit')}}</a>
-                                        <a href="{{route('delete.product' ,$product->id)}}" onclick="return confirm('are you sure you want to delete it')" class="btn btn-danger">{{__('Delete')}}</a>
+                                        <a href="{{route('testimonials.edit' ,$testimonial->id)}}" class="btn btn-info">{{__('Edit')}}</a>
+                                        <form action="{{route('testimonials.destroy',$testimonial->id)}}" method="post" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" value="{{__('Delete')}}" class="btn btn-danger" onclick="return confirm('are you sure you want to delete it')">
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div style="margin: 15px">{{ $products->links('pagination::bootstrap-4') }}</div>
+                        <div style="margin: 15px">{{ $testimonials->links('pagination::bootstrap-4') }}</div>
                 </div>
             </div>
         </div>

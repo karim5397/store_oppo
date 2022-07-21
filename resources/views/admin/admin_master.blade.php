@@ -16,15 +16,18 @@
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
         <!-- App css -->
-        @if (App::getLocale() =='en')
-        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href="{{asset('assets/css/all.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/bootstrap-dark.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+        <link href="{{asset('assets/css/customSelect.jquery.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/css/fontawesome-browser.css')}}" rel="stylesheet" type="text/css" />
+
+        @if (App::getLocale() =='en')
         <link href="{{asset('assets/css/app.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
         @else
-        <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
-        <link href="{{asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/css/app-rtl.min.css')}}" rel="stylesheet" type="text/css"  id="app-stylesheet" />
-
         @endif
     </head>
 
@@ -267,7 +270,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo text-center logo-dark">
+                    <a href="{{route('dashboard')}}" class="logo text-center logo-dark">
                         <span class="logo-lg">
                             <img src="{{asset('assets/images/logo.png')}}" alt="" height="22">
                             <!-- <span class="logo-lg-text-dark">Uplon</span> -->
@@ -498,7 +501,7 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="right-bar">
+        {{-- <div class="right-bar">
             <div class="rightbar-title">
                 <a href="javascript:void(0);" class="right-bar-toggle float-right">
                     <i class="mdi mdi-close"></i>
@@ -539,7 +542,7 @@
 
                 </div>
             </div> <!-- end slimscroll-menu-->
-        </div>
+        </div> --}}
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
@@ -550,14 +553,20 @@
         <!-- Vendor js -->
         <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery.slim.min.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+        <script src="{{asset('assets/js/fontawesome-browser.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
 
         <!-- App js -->
-        <script src="{{asset('assets/js/app.min.js')}}"></script>
         @include('admin.dashboard_body.tinyeditor')
 
-
+        <script>
+            //select icon
+                $(function($) {
+                    $.fabrowser();
+                });
+        </script>
 
     </body>
 

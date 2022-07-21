@@ -2,80 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Http\Requests\service\ServiceRequest;
 
 class ServiceController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $prices=Pricing::latest()->get();
-        return view('admin.pricing.index' , compact('prices'));
+        $services = Service::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('title_en', 'like', '%' . $request->search . '%')
+                    ->orWhere('title_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('icon', 'like', '%'  . $request->search . '%');
+
+            });
+        })->whereNotNull('id')->Paginate(5);
+        return view('admin.services.index' , compact('services'));
     }
 
 
     public function create()
     {
-        return view('admin.pricing.create');
+        return view('admin.services.create');
     }
 
 
-    public function store(StorePricingRequest $request)
+    public function store(ServiceRequest $request)
     {
-        //upload hasFile image
-        $pricing_img=$request->file('image');
-        $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
-        $img_path="frontend/assets/images/";
-        $last_img=$img_path . $img_ext;
-        Image::make($pricing_img)->resize(100 , 100)->save($last_img);
-        //upload hasFile image
-
-
-        Pricing::create(array_merge($request->validated(), ['image'=>$last_img]));
-        return redirect()->route('prices.index')->with('message' , 'Pricing Created Successfully');
+        service::create($request->validated());
+        return redirect()->route('services.index')->with('message' , 'Service Created Successfully');
     }
 
 
-    public function edit(Pricing $price)
+    public function edit(Service $service)
     {
-        $price=Pricing::find($price->id);
-        return view('admin.pricing.edit' , compact('price'));
+        $service=Service::find($service->id);
+        return view('admin.services.edit' , compact('service'));
     }
 
-    public function update(UpdatePricingRequest $request ,Pricing $price )
+    public function update(ServiceRequest $request ,Service $service )
     {
-        $old_image=$request->old_image;
-        $pricing_img=$request->file('image');
-        if($pricing_img){
-            $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
-            $img_path='frontend/assets/images/';
-            $last_img=$img_path . $img_ext;
-            Image::make($pricing_img)->resize(100 , 100)->save($last_img);
-            unlink($old_image);
+            $service=Service::find($service->id)->update($request->validated());
+            return redirect()->route('services.index')->with('message' , 'The Service Is Updated Successfully');
 
-
-
-            $price=Pricing::find($price->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
-        }else{
-
-
-            // $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
-        }
     }
 
     public function destroy($id)
     {
-        $price=Pricing::findOrFail($id);
-        if($price === null){
-            $price=Pricing::findOrFail($id);
-            $price->delete();
-        }else{
-            $price->delete();
-            $old_image=$price->image;
-            unlink($old_image);
-        }
-
-        return redirect()->route('prices.index')->with('message' , 'The Pricing Is Deleted Successfully');
+        Service::findOrFail($id)->delete();
+        return redirect()->route('services.index')->with('message' , 'The service Is Deleted Successfully');
     }
 }

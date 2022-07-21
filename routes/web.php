@@ -12,6 +12,7 @@ use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimomialController;
+use App\Http\Controllers\TouchController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -57,15 +58,17 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'l
             Route::get('/delete/product/{id}' , [ProductController::class , 'destroy'])->name('delete.product');
 
 
-            Route::resource('prices', PricingController::class); //prices
-            Route::resource('users' ,UserController::class); //users
-            Route::resource('contacts' ,ContactController::class); //contacts
-            Route::resource('features' ,FeatureController::class); //features
-            Route::resource('gallery' ,GalleryController::class); //gallery
-            Route::resource('services' ,ServiceController::class); //services
-            Route::resource('slider' ,SliderController::class); //slider
-            Route::resource('members' ,MemberController::class); //members
-            Route::resource('testimonials' ,TestimomialController::class); //testimonials
+            Route::resource('prices', PricingController::class); //prices .
+            Route::resource('users' ,UserController::class); //users .
+            Route::resource('contacts' ,ContactController::class); //contacts .
+            Route::resource('features' ,FeatureController::class); //features .
+            Route::resource('gallery' ,GalleryController::class); //gallery .
+            Route::resource('services' ,ServiceController::class); //services .
+            Route::resource('sliders' ,SliderController::class); //slider .
+            Route::resource('members' ,MemberController::class); //members .
+            Route::resource('testimonials' ,TestimomialController::class); //testimonials .
+            Route::resource('touchs' ,TouchController::class); //touch .
+            Route::get('/export', [TouchController::class, 'export'])->name('admin.export');
         });
 
 

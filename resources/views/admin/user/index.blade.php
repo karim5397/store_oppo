@@ -6,7 +6,17 @@
         <div class="row">
             <div class="col">
                 <div class="mt-3">
-                    <a href="{{route('users.create')}}" class="btn btn-primary">{{__('Add User')}}</a>
+                    <div class="row d-flex justify-content-between mx-1">
+                        <a href="{{route('users.create')}}" class="btn btn-primary">{{__('Add User')}}</a>
+
+                        <form action="{{ route('users.index') }}" method="GET" class="d-flex">
+                            @csrf
+                        <input type="search" name="search" data-kt-user-table-filter="search" value="{{request()->search}}" placeholder="{{__('Search')}}" class="form-control form-control-solid w-250px ps-14">
+                        <button type="submit" class="btn btn-info ">
+                            {{__('Search')}}
+                        </button>
+                    </form>
+                </div>
                 </div>
                 <br>
                 <div class="card">

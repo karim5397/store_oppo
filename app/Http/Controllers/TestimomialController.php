@@ -2,80 +2,92 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use App\Http\Requests\testimonial\TestimonialRequest;
 
 class TestimomialController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $prices=Pricing::latest()->get();
-        return view('admin.pricing.index' , compact('prices'));
+        $testimonials = Testimonial::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('title_en', 'like', '%' . $request->search . '%')
+                    ->orWhere('title_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('content_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('content_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_ar', 'like', '%'  . $request->search . '%');
+            });
+        })->whereNotNull('id')->Paginate(5);
+        return view('admin.testimonials.index' , compact('testimonials'));
     }
 
 
     public function create()
     {
-        return view('admin.pricing.create');
+        return view('admin.testimonials.create');
     }
 
 
-    public function store(StorePricingRequest $request)
+    public function store(TestimonialRequest $request)
     {
         //upload hasFile image
-        $pricing_img=$request->file('image');
-        $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
+        $testimonial_img=$request->file('image');
+        $img_ext=hexdec(uniqid()). '.' . $testimonial_img->getClientOriginalExtension();
         $img_path="frontend/assets/images/";
         $last_img=$img_path . $img_ext;
-        Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+        Image::make($testimonial_img)->resize(100 , 100)->save($last_img);
         //upload hasFile image
 
 
-        Pricing::create(array_merge($request->validated(), ['image'=>$last_img]));
-        return redirect()->route('prices.index')->with('message' , 'Pricing Created Successfully');
+        Testimonial::create(array_merge($request->validated(), ['image'=>$last_img]));
+        return redirect()->route('testimonials.index')->with('message' , 'Testimonial Created Successfully');
     }
 
 
-    public function edit(Pricing $price)
+    public function edit(Testimonial $testimonial)
     {
-        $price=Pricing::find($price->id);
-        return view('admin.pricing.edit' , compact('price'));
+        $testimonial=Testimonial::find($testimonial->id);
+        return view('admin.testimonials.edit' , compact('testimonial'));
     }
 
-    public function update(UpdatePricingRequest $request ,Pricing $price )
+    public function update(TestimonialRequest $request ,Testimonial $testimonial )
     {
         $old_image=$request->old_image;
-        $pricing_img=$request->file('image');
-        if($pricing_img){
-            $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
+        $Testimonial_img=$request->file('image');
+        if($Testimonial_img){
+            $img_ext=hexdec(uniqid()). '.' . $Testimonial_img->getClientOriginalExtension();
             $img_path='frontend/assets/images/';
             $last_img=$img_path . $img_ext;
-            Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+            Image::make($Testimonial_img)->resize(100 , 100)->save($last_img);
             unlink($old_image);
 
 
 
-            $price=Pricing::find($price->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $testimonial=Testimonial::find($testimonial->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
+            return redirect()->route('testimonials.index')->with('message' , 'The Testimonial Is Updated Successfully');
         }else{
 
 
-            // $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $testimonial=Testimonial::find($testimonial->id)->update($request->safe()->except(['image']));
+            return redirect()->route('testimonials.index')->with('message' , 'The Testimonial Is Updated Successfully');
         }
     }
 
     public function destroy($id)
     {
-        $price=Pricing::findOrFail($id);
-        if($price === null){
-            $price=Pricing::findOrFail($id);
-            $price->delete();
+        $testimonial=Testimonial::findOrFail($id);
+        if($testimonial === null){
+            $testimonial=Testimonial::findOrFail($id);
+            $testimonial->delete();
         }else{
-            $price->delete();
-            $old_image=$price->image;
+            $testimonial->delete();
+            $old_image=$testimonial->image;
             unlink($old_image);
         }
 
-        return redirect()->route('prices.index')->with('message' , 'The Pricing Is Deleted Successfully');
+        return redirect()->route('testimonials.index')->with('message' , 'The Testimonial Is Deleted Successfully');
     }
 }

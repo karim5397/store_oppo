@@ -12,9 +12,16 @@ use App\Http\Requests\user\UpdateUserRequest;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users=User::latest()->paginate(5);
+        $users = User::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('f_name', 'like', '%' . $request->search . '%')
+                    ->orWhere('l_name', 'like', '%'  . $request->search . '%')
+                    ->orWhere('email', 'like', '%'  . $request->search . '%')
+                    ->orWhere('phone', 'like', '%'  . $request->search . '%');
+            });
+        })->whereNotNull('id')->Paginate(5);
         return view('admin.user.index' , compact('users'));
     }
 

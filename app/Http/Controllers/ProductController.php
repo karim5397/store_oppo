@@ -15,8 +15,7 @@ class ProductController extends Controller
         //for search
         $products = Product::where(function ($q) use ($request) {
             return $q->when($request->search, function ($query)  use ($request) {
-                return $query->where('content_en', 'like', '%' . $request->search . '%')
-                    ->orWhere('title_en', 'like', '%'  . $request->search . '%')
+                return $query->where('title_en', 'like', '%' . $request->search . '%')
                     ->orWhere('title_ar', 'like', '%'  . $request->search . '%')
                     ->orWhere('description_en', 'like', '%'  . $request->search . '%')
                     ->orWhere('description_ar', 'like', '%'  . $request->search . '%');

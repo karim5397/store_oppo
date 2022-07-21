@@ -51,8 +51,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Feature')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Feature')}}</a></li>
+                        <li><a href="{{route('features.index')}}">{{__('Feature')}}</a></li>
+                        <li><a href="{{route('features.create')}}">{{__('Add Feature')}}</a></li>
                     </ul>
                 </li>
 
@@ -64,7 +64,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Gallery')}}</a></li>
+                        <li><a href="{{route('gallery.index')}}">{{__('Gallery')}}</a></li>
+                        <li><a href="{{route('gallery.create')}}">{{__('Add Image')}}</a></li>
                     </ul>
                 </li>
 
@@ -89,8 +90,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Services')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Service')}}</a></li>
+                        <li><a href="{{route('services.index')}}">{{__('Services')}}</a></li>
+                        <li><a href="{{route('services.create')}}">{{__('Add Service')}}</a></li>
                     </ul>
                 </li>
 
@@ -102,8 +103,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Slider')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Slider')}}</a></li>
+                        <li><a href="{{route('sliders.index')}}">{{__('Slider')}}</a></li>
+                        <li><a href="{{route('sliders.create')}}">{{__('Add Slider')}}</a></li>
                     </ul>
                 </li>
 
@@ -115,8 +116,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Team Members')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Member')}}</a></li>
+                        <li><a href="{{route('members.index')}}">{{__('Team Members')}}</a></li>
+                        <li><a href="{{route('members.create')}}">{{__('Add Member')}}</a></li>
                     </ul>
                 </li>
 
@@ -128,8 +129,8 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Testimonials')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Testimonial')}}</a></li>
+                        <li><a href="{{route('testimonials.index')}}">{{__('Testimonials')}}</a></li>
+                        <li><a href="{{route('testimonials.create')}}">{{__('Add Testimonial')}}</a></li>
                     </ul>
                 </li>
 

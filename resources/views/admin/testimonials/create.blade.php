@@ -4,9 +4,9 @@
 
     <div class="container-fluid">
 
-        <h1>{{__('Add Product')}}</h1>
+        <h1>{{__('Add Testimonial')}}</h1>
 
-        <form action="{{route('store.product')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('testimonials.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="row">
                 <div class="mb-3 my-5 col-6">
@@ -20,6 +20,20 @@
                     <label  class="form-label">{{__('Title Arabic')}}</label>
                     <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_ar">
                     @error('title_ar')
+                     <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3 col-6">
+                    <label class="form-label">{{__('Content English')}}</label>
+                    <textarea class="form-control tinymce-editor" rows="3" name="content_en" ></textarea>
+                    @error('content_en')
+                     <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3 col-6">
+                    <label class="form-label">{{__('Content Arabic')}}</label>
+                    <textarea class="form-control tinymce-editor" rows="3" name="content_ar" ></textarea>
+                    @error('content_ar')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>

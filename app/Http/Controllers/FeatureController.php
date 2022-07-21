@@ -2,80 +2,90 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feature;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use App\Http\Requests\feature\FeatureRequest;
 
 class FeatureController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $prices=Pricing::latest()->get();
-        return view('admin.pricing.index' , compact('prices'));
+        $features = Feature::where(function ($q) use ($request) {
+            return $q->when($request->search, function ($query)  use ($request) {
+                return $query->where('title_en', 'like', '%' . $request->search . '%')
+                    ->orWhere('title_ar', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_en', 'like', '%'  . $request->search . '%')
+                    ->orWhere('description_ar', 'like', '%'  . $request->search . '%');
+            });
+        })->whereNotNull('id')->Paginate(5);
+        return view('admin.features.index' , compact('features'));
     }
 
 
     public function create()
     {
-        return view('admin.pricing.create');
+        return view('admin.features.create');
     }
 
 
-    public function store(StorePricingRequest $request)
+    public function store(FeatureRequest $request)
     {
         //upload hasFile image
-        $pricing_img=$request->file('image');
-        $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
+        $feature_img=$request->file('image');
+        $img_ext=hexdec(uniqid()). '.' . $feature_img->getClientOriginalExtension();
         $img_path="frontend/assets/images/";
         $last_img=$img_path . $img_ext;
-        Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+        Image::make($feature_img)->resize(350 , 350)->save($last_img);
         //upload hasFile image
 
 
-        Pricing::create(array_merge($request->validated(), ['image'=>$last_img]));
-        return redirect()->route('prices.index')->with('message' , 'Pricing Created Successfully');
+        Feature::create(array_merge($request->validated(), ['image'=>$last_img]));
+        return redirect()->route('features.index')->with('message' , 'Feature Created Successfully');
     }
 
 
-    public function edit(Pricing $price)
+    public function edit(Feature $feature)
     {
-        $price=Pricing::find($price->id);
-        return view('admin.pricing.edit' , compact('price'));
+        $feature=Feature::find($feature->id);
+        return view('admin.features.edit' , compact('feature'));
     }
 
-    public function update(UpdatePricingRequest $request ,Pricing $price )
+    public function update(FeatureRequest $request ,Feature $feature )
     {
         $old_image=$request->old_image;
-        $pricing_img=$request->file('image');
-        if($pricing_img){
-            $img_ext=hexdec(uniqid()). '.' . $pricing_img->getClientOriginalExtension();
+        $feature_img=$request->file('image');
+        if($feature_img){
+            $img_ext=hexdec(uniqid()). '.' . $feature_img->getClientOriginalExtension();
             $img_path='frontend/assets/images/';
             $last_img=$img_path . $img_ext;
-            Image::make($pricing_img)->resize(100 , 100)->save($last_img);
+            Image::make($feature_img)->resize(350 , 350)->save($last_img);
             unlink($old_image);
 
 
 
-            $price=Pricing::find($price->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $feature=Feature::find($feature->id)->update(array_merge($request->validated(), ['image'=>$last_img]));
+            return redirect()->route('features.index')->with('message' , 'The Feature Is Updated Successfully');
         }else{
 
 
-            // $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
-            return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
+            $feature=feature::find($feature->id)->update($request->safe()->except(['image']));
+            return redirect()->route('features.index')->with('message' , 'The Feature Is Updated Successfully');
         }
     }
 
     public function destroy($id)
     {
-        $price=Pricing::findOrFail($id);
-        if($price === null){
-            $price=Pricing::findOrFail($id);
-            $price->delete();
+        $feature=Feature::findOrFail($id);
+        if($feature === null){
+            $feature=Feature::findOrFail($id);
+            $feature->delete();
         }else{
-            $price->delete();
-            $old_image=$price->image;
+            $feature->delete();
+            $old_image=$feature->image;
             unlink($old_image);
         }
 
-        return redirect()->route('prices.index')->with('message' , 'The Pricing Is Deleted Successfully');
+        return redirect()->route('features.index')->with('message' , 'The Feature Is Deleted Successfully');
     }
 }
