@@ -30,7 +30,7 @@
                             </div>
                       @endif
 
-                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All testimonials')}}</div>
+                        <div class="card-header" style="background-color: #2b3d51; color:#fff;">{{__('All Testimonials')}}</div>
                         <table class="table">
                             <thead>
                             <tr>

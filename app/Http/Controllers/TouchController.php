@@ -6,6 +6,7 @@ use App\Models\Touch;
 use App\Exports\TouchExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\touch\TouchRequest;
 
 class TouchController extends Controller
 {
@@ -24,13 +25,17 @@ class TouchController extends Controller
     public function destroy(Touch $touch)
     {
         $touch->delete();
-        return redirect()->back()->with('message' , 'The Touch Deleted Successfully');
+         return redirect()->back()->with('message' , 'The Touch Deleted Successfully');
     }
+    
     public function export()
     {
         return Excel::download(new TouchExport, 'touch.xlsx');
+    }
 
-        // return Excel::download(new TouchExport, 'touch.xlsx');
-        // return back();
+    public function storeTouch(TouchRequest $request)
+    {
+        Touch::create($request->validated());
+        return response()->json(['success' => 'The Touch Send. Thank you.']);
     }
 }

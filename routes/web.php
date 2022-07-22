@@ -8,6 +8,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
@@ -26,9 +27,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', function () {
-    return view('website_en.home');
-});
+Route::get('/' ,[HomeController::class ,'index']);
 
 Route::group( ['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function()
@@ -58,17 +57,17 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'l
             Route::get('/delete/product/{id}' , [ProductController::class , 'destroy'])->name('delete.product');
 
 
-            Route::resource('prices', PricingController::class); //prices .
-            Route::resource('users' ,UserController::class); //users .
-            Route::resource('contacts' ,ContactController::class); //contacts .
-            Route::resource('features' ,FeatureController::class); //features .
-            Route::resource('gallery' ,GalleryController::class); //gallery .
-            Route::resource('services' ,ServiceController::class); //services .
-            Route::resource('sliders' ,SliderController::class); //slider .
-            Route::resource('members' ,MemberController::class); //members .
-            Route::resource('testimonials' ,TestimomialController::class); //testimonials .
-            Route::resource('touchs' ,TouchController::class); //touch .
-            Route::get('/export', [TouchController::class, 'export'])->name('admin.export');
+            Route::resource('prices', PricingController::class); //prices
+            Route::resource('users' ,UserController::class); //users
+            Route::resource('contacts' ,ContactController::class); //contacts
+            Route::resource('features' ,FeatureController::class); //features
+            Route::resource('gallery' ,GalleryController::class); //gallery
+            Route::resource('services' ,ServiceController::class); //services
+            Route::resource('sliders' ,SliderController::class); //slider
+            Route::resource('members' ,MemberController::class); //members
+            Route::resource('testimonials' ,TestimomialController::class); //testimonials
+            Route::resource('touchs' ,TouchController::class); //touch
+            Route::get('/export', [TouchController::class, 'export'])->name('admin.export'); //export excel
         });
 
 
@@ -78,5 +77,6 @@ Route::group( ['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'l
 
 
 Route::get('/user/logout' , [UserController::class , 'Logout'])->name('user.logout');
+Route::post('/touchstore' ,[HomeController::class , 'storeTouch'])->name('store.touch');
 
 

@@ -4,10 +4,11 @@
 
     <div class="container-fluid">
 
-        <h1>{{__('Add Product')}}</h1>
+        <h1>{{__('Add Slider')}}</h1>
 
-        <form action="{{route('store.product')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('sliders.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                
             <div class="row">
                 <div class="mb-3 my-5 col-6">
                     <label  class="form-label">{{__('Title English')}}</label>

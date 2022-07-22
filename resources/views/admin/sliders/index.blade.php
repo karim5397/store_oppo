@@ -51,10 +51,10 @@
                                    <th scope="row">{{$sliders->firstItem()+$loop->index}} )</th> <!-- for contuin count when go to next page  -->
                                    @if (App::getLocale() =='en')
 
-                                   <td>{{ $slider->description_en}}</td>
+                                   <td>{{ $slider->title_en}}</td>
                                    <td>{!! $slider->description_en !!}</td>
                                    @else
-                                   <td>{{ $slider->description_ar}}</td>
+                                   <td>{{ $slider->title_ar}}</td>
                                    <td>{!! $slider->description_ar !!}</td>
                                    @endif
                                     <td><img src="{{asset($slider->image)}}" style="height: 40px; width:70px;" alt=""></td>

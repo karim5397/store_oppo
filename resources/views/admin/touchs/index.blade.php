@@ -7,7 +7,7 @@
             <div class="col">
                 <div class="mt-3">
                     <div class="row d-flex justify-content-between mx-1">
-                        <a href="{{route('admin.export')}}" class="btn btn-success btn-md my-4 btn btn-sm" style="margin-left: 12px;">
+                        {{-- <a href="{{route('admin.export')}}" class="btn btn-success btn-md my-4 btn btn-sm" style="margin-left: 12px;"> --}}
 
                         <form action="{{ route('touchs.index') }}" method="GET" class="d-flex">
                             @csrf
@@ -16,6 +16,7 @@
                             {{__('Search')}}
                         </button>
                     </form>
+                    <a href="{{route('admin.export')}}" class="btn btn-success"> export</a>
                 </div>
                 </div>
                 <br>

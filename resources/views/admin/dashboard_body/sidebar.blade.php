@@ -51,7 +51,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('features.index')}}">{{__('Feature')}}</a></li>
+                        <li><a href="{{route('features.index')}}">{{__('Features')}}</a></li>
                         <li><a href="{{route('features.create')}}">{{__('Add Feature')}}</a></li>
                     </ul>
                 </li>
@@ -60,11 +60,11 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-google-pages"></i>
-                        <span> {{__('Gallery')}} </span>
+                        <span> {{__('All Images')}} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('gallery.index')}}">{{__('Gallery')}}</a></li>
+                        <li><a href="{{route('gallery.index')}}">{{__('Images')}}</a></li>
                         <li><a href="{{route('gallery.create')}}">{{__('Add Image')}}</a></li>
                     </ul>
                 </li>
@@ -155,8 +155,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="{{route('all.products')}}">{{__('Touchs')}}</a></li>
-                        <li><a href="{{route('create.product')}}">{{__('Add Touch')}}</a></li>
+                        <li><a href="{{route('touchs.index')}}">{{__('All Touchs')}}</a></li>
                     </ul>
                 </li>
 

@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <input type="submit" value="Update" class="btn btn-primary">
+            <input type="submit" value="{{__('Update')}}" class="btn btn-primary">
         </form>
 
     </div>

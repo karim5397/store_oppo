@@ -35,8 +35,8 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">{{__('Title')}}</th>
                                 <th scope="col">{{__('Name')}}</th>
+                                <th scope="col">{{__('Description')}}</th>
                                 <th scope="col">{{__('Image')}}</th>
                                 <th scope="col">{{__('Action')}}</th>
 

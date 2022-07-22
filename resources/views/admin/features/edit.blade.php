@@ -28,13 +28,13 @@
                     <textarea class="form-control tinymce-editor" rows="3" name="description_ar" >{{$feature->description_ar}}</textarea>
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label">Feature Image</label>
+                    <label class="form-label">{{__('Feature Image')}}</label>
                     <input class="form-control" type="file" name="image" value="{{$feature->image}}">
                     <input type="hidden" name="old_image" value="{{$feature->image}}">
                 </div>
             </div>
 
-            <input type="submit" value="Update" class="btn btn-primary">
+            <input type="submit" value="{{__('Update')}}" class="btn btn-primary">
         </form>
 
     </div>

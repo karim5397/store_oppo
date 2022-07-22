@@ -4,6 +4,16 @@
     <!-- start landing  -->
     <section class="landing">
         <div class="container">
+            @if ($sliders !== null)
+            <div class="text">
+                <h1>{{$sliders->title_en}}</h1>
+                <p>{!!$sliders->description_en!!}</p>
+            </div>
+            <div class="img-landing">
+                <img src="{{asset($sliders->image)}}" alt="" width="600px" height="378px">
+            </div>
+            @else
+
             <div class="text">
                 <h1>Welcome, To OPPO Store</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nesciunt dicta possimus ab explicabo earum corporis qui perspiciatis soluta, sit eaque aliquid eveniet neque non veritatis voluptates rem veniam. Voluptatem?</p>
@@ -11,6 +21,7 @@
             <div class="img-landing">
                 <img src="{{asset('frontend/assets/img/reno6-5g-pdp-design-renoglow-xl-1728.webp')}}" alt="" width="600px" height="378px">
             </div>
+            @endif
         </div>
         <a href="#products" class="go-down">
             <i class="fas fa-angle-double-down fa-2x"></i>
@@ -21,102 +32,122 @@
     <section class="products" id="products">
         <h2 class="main-title">Products</h2>
         <div class="container">
-            <div class="box" data-aos="flip-left"
-            data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-reno7.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO Reno 7</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-left"
-            data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-a16.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO A16</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-left"
-            data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-a55-4g-1.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO A55</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-left"
-            data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-f1s.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO F1S</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-right"
-     data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-f9.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO F9</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-right"
-     data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-f19.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO F19</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-right"
-     data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-a9-2020-.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO A9 2020</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
-            <div class="box" data-aos="flip-right"
-     data-aos-easing="ease-out-cubic">
-                <img src="{{asset('frontend/assets/img/oppo-a5s-r.jpg')}}" alt="">
-                <div class="content">
-                    <h3>OPPO A5S</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
-                </div>
-                <div class="info">
-                    <a href="#">Read More</a>
-                    <i class="fas fa-long-arrow-alt-right"></i>
-                </div>
-            </div>
+            @forelse ($products as $product )
+
+                        <div class="box" data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic">
+                            <img src="{{asset($product->image)}}" alt="">
+                            <div class="content">
+                                <h3>{{$product->title_en}}</h3>
+                                <p>{!!$product->description_en!!} </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+
+            @empty
+
+                        <div class="box" data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-reno7.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO Reno 7</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-a16.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO A16</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-a55-4g-1.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO A55</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-left"
+                        data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-f1s.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO F1S</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-right"
+                data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-f9.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO F9</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-right"
+                data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-f19.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO F19</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-right"
+                data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-a9-2020-.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO A9 2020</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        <div class="box" data-aos="flip-right"
+                data-aos-easing="ease-out-cubic">
+                            <img src="{{asset('frontend/assets/img/oppo-a5s-r.jpg')}}" alt="">
+                            <div class="content">
+                                <h3>OPPO A5S</h3>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit harum ad minus eaque sunt, ducimus maiores voluptate aliquam aliquid </p>
+                            </div>
+                            <div class="info">
+                                <a href="#">Read More</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+
+
+            @endforelse
         </div>
     </section>
     <div class="spikes"></div>
@@ -125,36 +156,45 @@
     <section class="gallery" id="gallery">
         <h2 class="main-title">Gallery</h2>
         <div class="container">
-            <div class="box" data-aos="zoom-in-right">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/oppo-find-x5-pro-3.jpg')}}">
-                </div>
-            </div>
-            <div class="box" data-aos="zoom-in">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/gallary2.jpg')}}">
-                </div>
-            </div>
-            <div class="box" data-aos="zoom-in-left">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/gallary3.jpg')}}">
-                </div>
-            </div>
-            <div class="box" data-aos="zoom-in-right">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/gallery7.jpg')}}">
-                </div>
-            </div>
-            <div class="box" data-aos="zoom-in">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/gallary5.jpg')}}">
-                </div>
-            </div>
-            <div class="box" data-aos="zoom-in-left">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/gallery6.jpg')}}">
-                </div>
-            </div>
+            @forelse ($images as $image)
+                    <div class="box" data-aos="zoom-in-right">
+                        <div class="image">
+                            <img src="{{asset($image->image)}}">
+                        </div>
+                    </div>
+            @empty
+
+                    <div class="box" data-aos="zoom-in-right">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/oppo-find-x5-pro-3.jpg')}}">
+                        </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/gallary2.jpg')}}">
+                        </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in-left">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/gallary3.jpg')}}">
+                        </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in-right">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/gallery7.jpg')}}">
+                        </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/gallary5.jpg')}}">
+                        </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in-left">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/gallery6.jpg')}}">
+                        </div>
+                    </div>
+            @endforelse
 
         </div>
 
@@ -164,30 +204,43 @@
     <section class="features" id="features">
         <h2 class="main-title">Features</h2>
         <div class="container">
-            <div class="box quality" data-aos="fade-right">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/quality2.jpg')}}" alt="">
-                </div>
-                <h3>quality</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
-                <a href="#">More</a>
-            </div>
-            <div class="box time" data-aos="fade-up">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/time.jpg')}}" alt="">
-                </div>
-                <h3>time</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
-                <a href="#">More</a>
-            </div>
-            <div class="box passion" data-aos="fade-left">
-                <div class="image">
-                    <img src="{{asset('frontend/assets/img/processor1.jpg')}}" alt="">
-                </div>
-                <h3>passion</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
-                <a href="#">More</a>
-            </div>
+            @forelse ($features as $feature )
+                    <div class="box quality" data-aos="fade-right">
+                        <div class="image">
+                            <img src="{{asset($feature->image)}}" alt="">
+                        </div>
+                        <h3>{{$feature->title_en}}</h3>
+                        <p>{{$feature->description_en}}</p>
+                        <a href="#">More</a>
+                    </div>
+            @empty
+
+                    <div class="box quality" data-aos="fade-right">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/quality2.jpg')}}" alt="">
+                        </div>
+                        <h3>quality</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
+                        <a href="#">More</a>
+                    </div>
+                    <div class="box time" data-aos="fade-up">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/time.jpg')}}" alt="">
+                        </div>
+                        <h3>time</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
+                        <a href="#">More</a>
+                    </div>
+                    <div class="box passion" data-aos="fade-left">
+                        <div class="image">
+                            <img src="{{asset('frontend/assets/img/processor1.jpg')}}" alt="">
+                        </div>
+                        <h3>passion</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolor dolores odio .</p>
+                        <a href="#">More</a>
+                    </div>
+
+            @endforelse
         </div>
 
     </section>
@@ -198,84 +251,101 @@
             testimonials
         </h2>
         <div class="container">
-            <div class="box" data-aos="flip-up">
-                <img src="{{asset('frontend/assets/images/avatar-01.png')}}" alt="">
-                <h3>Karim Atef</h3>
-                <span class="title">Full Stack Web Developer</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
-            </div>
-            <div class="box" data-aos="flip-up">
-                <img src="{{asset('frontend/assets/images/avatar-02.png')}}" alt="">
-                <h3>Ahmed Atef</h3>
-                <span class="title">Full Stack Web Developer</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
-            </div>
-            <div class="box" data-aos="flip-up">
-                <img src="{{asset('frontend/assets/images/avatar-03.png')}}" alt="">
-                <h3>Mohamed Said</h3>
-                <span class="title">Full Stack Web Developer</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
-            </div>
-            <div class="box" data-aos="flip-down">
-                <img src="{{asset('frontend/assets/images/avatar-04.png')}}" alt="">
-                <h3>Mohamed Ansary</h3>
-                <span class="title">Full Stack Web Developer</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
-            </div>
-            <div class="box" data-aos="flip-down">
-                <img src="{{asset('frontend/assets/images/avatar-05.png')}}" alt="">
-                <h3>Amr Samir</h3>
-                <span class="title">Full Stack Web Developer</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
-            </div>
-            <div class="box" data-aos="flip-down">
-                <img src="{{asset('frontend/assets/images/avatar-06.png')}}" alt="">
-                <h3>Ali Emad</h3>
-                <span class="title">Full Stack Web Developer</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
-            </div>
+            @forelse ($testimonials as $testimonial)
+                    <div class="box" data-aos="flip-up">
+                        <img src="{{asset($testimonial->image)}}" alt="">
+                        <h3>{{$testimonial->title_en}}</h3>
+                        <span class="title">{!!$testimonial->content_en!!}</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>{!!$testimonial->description_en!!}</p>
+                    </div>
+            @empty
+
+                    <div class="box" data-aos="flip-up">
+                        <img src="{{asset('frontend/assets/images/avatar-01.png')}}" alt="">
+                        <h3>Karim Atef</h3>
+                        <span class="title">Full Stack Web Developer</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
+                    </div>
+                    <div class="box" data-aos="flip-up">
+                        <img src="{{asset('frontend/assets/images/avatar-02.png')}}" alt="">
+                        <h3>Ahmed Atef</h3>
+                        <span class="title">Full Stack Web Developer</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
+                    </div>
+                    <div class="box" data-aos="flip-up">
+                        <img src="{{asset('frontend/assets/images/avatar-03.png')}}" alt="">
+                        <h3>Mohamed Said</h3>
+                        <span class="title">Full Stack Web Developer</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
+                    </div>
+                    <div class="box" data-aos="flip-down">
+                        <img src="{{asset('frontend/assets/images/avatar-04.png')}}" alt="">
+                        <h3>Mohamed Ansary</h3>
+                        <span class="title">Full Stack Web Developer</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
+                    </div>
+                    <div class="box" data-aos="flip-down">
+                        <img src="{{asset('frontend/assets/images/avatar-05.png')}}" alt="">
+                        <h3>Amr Samir</h3>
+                        <span class="title">Full Stack Web Developer</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
+                    </div>
+                    <div class="box" data-aos="flip-down">
+                        <img src="{{asset('frontend/assets/images/avatar-06.png')}}" alt="">
+                        <h3>Ali Emad</h3>
+                        <span class="title">Full Stack Web Developer</span>
+                        <div class="rate">
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="filled fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati tempore dolor debitis earum recusandae aspernatur molestias exercitationem possimus blanditiis at,</p>
+                    </div>
+            @endforelse
         </div>
 
     </section>
@@ -284,127 +354,148 @@
     <section class="team-member" id="team-member">
         <h2 class="main-title">Team Members</h2>
         <div class="container">
-            <div class="box" data-aos="fade-up-right">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team1.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3> Sarah Parmenter</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team2.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Dan Cederholm</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up-left">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team3.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Ethan Marcotte</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up-right">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team4.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Abby Covert</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team5.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Dave Shea</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up-left">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team6.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Jeffrey Zeldman</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up-right">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team7.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Rachel Andrew</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
-            </div>
-            <div class="box" data-aos="fade-up">
-                <div class="data">
-                    <img src="{{asset('frontend/assets/img/team8.webp')}}" alt="">
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="info">
-                    <h3>Simon Collison</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
-                </div>
 
-            </div>
+            @forelse ($members as $member )
+                    <div class="box" data-aos="fade-up-right">
+                        <div class="data">
+                            <img src="{{asset($member->image)}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3> {{$member->name_en}}</h3>
+                            <p>{!!$member->description_en!!} </p>
+                        </div>
+                    </div>
+
+            @empty
+
+                    <div class="box" data-aos="fade-up-right">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team1.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3> Sarah Parmenter</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team2.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Dan Cederholm</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up-left">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team3.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Ethan Marcotte</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up-right">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team4.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Abby Covert</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team5.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Dave Shea</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up-left">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team6.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Jeffrey Zeldman</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up-right">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team7.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Rachel Andrew</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+                    </div>
+                    <div class="box" data-aos="fade-up">
+                        <div class="data">
+                            <img src="{{asset('frontend/assets/img/team8.webp')}}" alt="">
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Simon Collison</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sit voluptatem </p>
+                        </div>
+
+                    </div>
+            @endforelse
         </div>
 
     </section>
@@ -414,48 +505,61 @@
     <section class="services" id="services">
         <h2 class="main-title">Services</h2>
         <div class="container">
-          <div class="box" data-aos="flip-right">
-            <i class="fas fa-user-shield fa-4x"></i>
-            <h3>Security</h3>
-            <div class="info">
-              <a href="#">Details</a>
-            </div>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <i class="fas fa-tools fa-4x"></i>
-            <h3>Fixing Issues</h3>
-            <div class="info">
-              <a href="#">Details</a>
-            </div>
-          </div>
-          <div class="box" data-aos="flip-left">
-            <i class="fas fa-map-marked-alt fa-4x"></i>
-            <h3>Location</h3>
-            <div class="info">
-              <a href="#">Details</a>
-            </div>
-          </div>
-          <div class="box" data-aos="flip-right">
-            <i class="fas fa-laptop-code fa-4x"></i>
-            <h3>Coding</h3>
-            <div class="info">
-              <a href="#">Details</a>
-            </div>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <i class="fas fa-palette fa-4x"></i>
-            <h3>Security</h3>
-            <div class="info">
-              <a href="#">Design</a>
-            </div>
-          </div>
-          <div class="box" data-aos="flip-left">
-            <i class="fas fa-bullhorn fa-4x"></i>
-            <h3>Marketing</h3>
-            <div class="info">
-              <a href="#">Details</a>
-            </div>
-          </div>
+            @forelse ($services as $service)
+
+                    <div class="box" data-aos="flip-right">
+                        <i class="{{$service->icon}} fa-4x"></i>
+                        <h3>{{$service->title_en}}</h3>
+                        <div class="info">
+                        <a href="#">Details</a>
+                        </div>
+                    </div>
+
+            @empty
+
+                    <div class="box" data-aos="flip-right">
+                    <i class="fas fa-user-shield fa-4x"></i>
+                    <h3>Security</h3>
+                    <div class="info">
+                        <a href="#">Details</a>
+                    </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in">
+                    <i class="fas fa-tools fa-4x"></i>
+                    <h3>Fixing Issues</h3>
+                    <div class="info">
+                        <a href="#">Details</a>
+                    </div>
+                    </div>
+                    <div class="box" data-aos="flip-left">
+                    <i class="fas fa-map-marked-alt fa-4x"></i>
+                    <h3>Location</h3>
+                    <div class="info">
+                        <a href="#">Details</a>
+                    </div>
+                    </div>
+                    <div class="box" data-aos="flip-right">
+                    <i class="fas fa-laptop-code fa-4x"></i>
+                    <h3>Coding</h3>
+                    <div class="info">
+                        <a href="#">Details</a>
+                    </div>
+                    </div>
+                    <div class="box" data-aos="zoom-in">
+                    <i class="fas fa-palette fa-4x"></i>
+                    <h3>Security</h3>
+                    <div class="info">
+                        <a href="#">Design</a>
+                    </div>
+                    </div>
+                    <div class="box" data-aos="flip-left">
+                    <i class="fas fa-bullhorn fa-4x"></i>
+                    <h3>Marketing</h3>
+                    <div class="info">
+                        <a href="#">Details</a>
+                    </div>
+                    </div>
+            @endforelse
         </div>
     </section>
     <!-- end Services -->
@@ -570,58 +674,78 @@
       <div class="dots dots-down"></div>
         <h2 class="main-title">PRICING PLANS</h2>
         <div class="container">
-            <div class="box" data-aos="fade-right">
-                <h3 class="title">Advanced</h3>
-                <img src="{{asset('frontend/assets/images/hosting-advanced.png')}}" alt="">
-                <div class="price">
-                    <span class="amount">$15</span>
-                    <span class="time">per month</span>
-                </div>
-                <ul>
-                    <li>10GB HDD Space</li>
-                    <li>5 Email Addresses</li>
-                    <li>2 Subdomains</li>
-                    <li>4 Databases</li>
-                    <li>Basic Support</li>
-                </ul>
-                <a href="#">choose plan</a>
+            @forelse ($prices as $price)
 
-            </div>
-            <div class="box popular" data-aos="fade-up">
-                <h3 class="label">Most popular</h3>
-                <h3 class="title">Professional</h3>
-                <img src="{{asset('frontend/assets/images/hosting-professional.png')}}" alt="">
-                <div class="price">
-                    <span class="amount">$25</span>
-                    <span class="time">per month</span>
-                </div>
-                <ul>
-                    <li>20GB HDD Space</li>
-                    <li>10 Email Addresses</li>
-                    <li>5 Subdomains</li>
-                    <li>8 Databases</li>
-                    <li>Advanced Support</li>
-                </ul>
-                <a href="#">choose plan</a>
+                    <div class="box" data-aos="fade-right">
+                        <h3 class="title">{{$price->title_en}}</h3>
+                        <img src="{{asset($price->image)}}" alt="">
+                        <div class="price">
+                            <span class="amount">{{$price->price}}</span>
+                            <span class="time">per month</span>
+                        </div>
+                        <ul>
+                            {!! $price->description_en !!}
 
-            </div>
-            <div class="box" data-aos="fade-left">
-                <h3 class="title">Basic</h3>
-                <img src="{{asset('frontend/assets/images/hosting-basic.png')}}" alt="">
-                <div class="price">
-                    <span class="amount">$45</span>
-                    <span class="time">per month</span>
-                </div>
-                <ul>
-                    <li>50GB HDD Space</li>
-                    <li>20 Email Addresses</li>
-                    <li>10 Subdomains</li>
-                    <li>20 Databases</li>
-                    <li>Professional Support</li>
-                </ul>
-                <a href="#">choose plan</a>
+                        </ul>
+                        <a href="#">choose plan</a>
 
-            </div>
+                    </div>
+
+            @empty
+
+                    <div class="box" data-aos="fade-right">
+                        <h3 class="title">Advanced</h3>
+                        <img src="{{asset('frontend/assets/images/hosting-advanced.png')}}" alt="">
+                        <div class="price">
+                            <span class="amount">$15</span>
+                            <span class="time">per month</span>
+                        </div>
+                        <ul>
+                            <li>10GB HDD Space</li>
+                            <li>5 Email Addresses</li>
+                            <li>2 Subdomains</li>
+                            <li>4 Databases</li>
+                            <li>Basic Support</li>
+                        </ul>
+                        <a href="#">choose plan</a>
+
+                    </div>
+                    <div class="box popular" data-aos="fade-up">
+                        <h3 class="label">Most popular</h3>
+                        <h3 class="title">Professional</h3>
+                        <img src="{{asset('frontend/assets/images/hosting-professional.png')}}" alt="">
+                        <div class="price">
+                            <span class="amount">$25</span>
+                            <span class="time">per month</span>
+                        </div>
+                        <ul>
+                            <li>20GB HDD Space</li>
+                            <li>10 Email Addresses</li>
+                            <li>5 Subdomains</li>
+                            <li>8 Databases</li>
+                            <li>Advanced Support</li>
+                        </ul>
+                        <a href="#">choose plan</a>
+
+                    </div>
+                    <div class="box" data-aos="fade-left">
+                        <h3 class="title">Basic</h3>
+                        <img src="{{asset('frontend/assets/images/hosting-basic.png')}}" alt="">
+                        <div class="price">
+                            <span class="amount">$45</span>
+                            <span class="time">per month</span>
+                        </div>
+                        <ul>
+                            <li>50GB HDD Space</li>
+                            <li>20 Email Addresses</li>
+                            <li>10 Subdomains</li>
+                            <li>20 Databases</li>
+                            <li>Professional Support</li>
+                        </ul>
+                        <a href="#">choose plan</a>
+
+                    </div>
+            @endforelse
 
         </div>
     </section>
@@ -698,11 +822,12 @@
             <div class="request-discount">
                 <div class="content">
                     <h2>Request A Discount</h2>
-                    <form action="">
-                        <input class="input" type="text" placeholder="Your Name">
-                        <input class="input" type="email" placeholder="Your Email">
-                        <input class="input" type="text" placeholder="Your Phone">
-                        <textarea class="input"  rows="10" placeholder="Tell Us About Your Needs"></textarea>
+                    <form method="post" enctype="multipart/form-data" class="laravel-ajax-file-upload">
+                        @csrf
+                        <input class="input" name="name" type="text" placeholder="Your Name">
+                        <input class="input" name="email" type="email" placeholder="Your Email">
+                        <input class="input" name="phone" type="text" placeholder="Your Phone">
+                        <textarea class="input" name="message" rows="10" placeholder="Tell Us About Your Needs"></textarea>
                         <input type="submit" value="Send">
                     </form>
                 </div>

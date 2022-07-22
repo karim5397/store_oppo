@@ -64,7 +64,7 @@ class PricingController extends Controller
         }else{
 
 
-            // $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
+            $price=Pricing::find($price->id)->update($request->safe()->except(['image']));
             return redirect()->route('prices.index')->with('message' , 'The Pricing Is Updated Successfully');
         }
     }

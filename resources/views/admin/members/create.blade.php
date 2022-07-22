@@ -4,22 +4,22 @@
 
     <div class="container-fluid">
 
-        <h1>{{__('Add Slider')}}</h1>
+        <h1>{{__('Add Member')}}</h1>
 
-        <form action="{{route('sliders.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('members.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="row">
                 <div class="mb-3 my-5 col-6">
-                    <label  class="form-label">{{__('Title English')}}</label>
-                    <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_en">
-                    @error('title_en')
+                    <label  class="form-label">{{__('Name English')}}</label>
+                    <input type="text" class="form-control" placeholder="{{__('Write Name')}}" name="name_en">
+                    @error('name_en')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3 my-5 col-6">
-                    <label  class="form-label">{{__('Title Arabic')}}</label>
-                    <input type="text" class="form-control" placeholder="{{__('Write Title')}}" name="title_ar">
-                    @error('title_ar')
+                    <label  class="form-label">{{__('Name Arabic')}}</label>
+                    <input type="text" class="form-control" placeholder="{{__('Write Name')}}" name="name_ar">
+                    @error('name_ar')
                      <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -38,7 +38,7 @@
                     @enderror
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label">{{__('Slider Image')}}</label>
+                    <label class="form-label">{{__('Member Image')}}</label>
                     <input class="form-control" type="file" name="image">
                     @error('image')
                      <span class="text-danger">{{ $message }}</span>
