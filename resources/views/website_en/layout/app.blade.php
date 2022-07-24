@@ -27,10 +27,9 @@
                      @include('website_en.layout.footer')
                  <!-- end footer  -->
                 {{-- start script  --}}
+                <script src="{{asset('frontend/assets/js/jquery-3.6.0.min.js')}}"></script>
                 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
                 <script src="{{asset('frontend/assets/js/bootstrap.bundle.min.js')}}"></script>
-                <script src="{{asset('frontend/assets/js/jquery-3.6.0.min.js')}}"></script>
-                <script src="{{asset('frontend/assets/js/jquery.slim.min.js')}}"></script>
                 <script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
                 <script type="text/javascript">
@@ -41,7 +40,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
                         });
-                        $('.laravel-ajax-file-upload').submit(function(e) {
+                        $('#laravel-ajax-file-upload').submit(function(e) {
                         e.preventDefault();
                         var formData = new FormData(this);
                         $.ajax({

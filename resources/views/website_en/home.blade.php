@@ -822,8 +822,9 @@
             <div class="request-discount">
                 <div class="content">
                     <h2>Request A Discount</h2>
-                    <form method="post" enctype="multipart/form-data" class="laravel-ajax-file-upload">
+                    <form method="post"  enctype="multipart/form-data" id="laravel-ajax-file-upload">
                         @csrf
+                        @method('POST')
                         <input class="input" name="name" type="text" placeholder="Your Name">
                         <input class="input" name="email" type="email" placeholder="Your Email">
                         <input class="input" name="phone" type="text" placeholder="Your Phone">
